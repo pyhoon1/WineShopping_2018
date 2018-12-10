@@ -127,6 +127,20 @@ public class AdminController {
 			return result;
 		}
 	}
+	
+	@RequestMapping("/hasWine.do")
+	@ResponseBody
+	public String hasWine(@RequestParam (name ="productName", required=false) String productName) {
+		int hasWine = adminservice.hasWine(productName);
+		String result = "";
+		if (hasWine > 0) {
+			result = "Y";
+			return result;
+		} else {
+			result = "N";
+			return result;
+		}
+	}
 
 	@RequestMapping("/warningReview.do")
 	@ResponseBody

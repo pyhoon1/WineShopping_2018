@@ -10,12 +10,12 @@
 </script>
 <script>
 function hasWine() {
-	if($('#matchFoodName').val() == ""){
+	if($('#productName').val() == ""){
 		alert("중복을 검사할 음식명을 입력해주세요");
 		return false;
 	}else{
 	var information = {
-		'matchFoodName' : $('#matchFoodName').val()
+		'productName' : $('#productName').val()
 	}
 	$.ajax({
 				url : 'hasWine.do',
@@ -38,11 +38,35 @@ function hasWine() {
 };
 
 }
+var product = "";
+$('#food').click(function(){
+	if (this.checked) {
+		product += $(this).val() + ",";
+		
+		document.getElementById('product').value = product;
+	} else {
+		var productL = product.split(',');
+		var prdouctId = product.split(',', productL.length - 1);
+		for ( var i in prdouctId) {
+			if (prdouctId[i] == $(this).val()) {
+				prdouctId.splice(i, 1);
+			}
+		}
+		product = "";
+		for ( var i in prdouctId) {
+			product += prdouctId[i] + ",";
+		}
+
+	}
+
+})
+
 </script>
 <title>Insert title here</title>
 </head>
 <body>
 <form id="frm">
+<input type="hidden" id="matchFoodName" val="">
 <table>
 	<tr>
 		<td>생산자</td>
@@ -83,7 +107,8 @@ function hasWine() {
 	</tr>
 	<tr>
 	    <td><c:forEach items="${matchFood}" var="matchFood">
-	    	<label><input type="checkbox" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
+	    	<label><input type="checkbox" id="food" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
+	    			
 	    </c:forEach> </td>
 		<td><input type="text" name="alcohol" id="alcohol"></td>
 		<td><input type="text" name="weight" id="weight"></td>

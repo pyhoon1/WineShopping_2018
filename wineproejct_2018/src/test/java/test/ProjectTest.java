@@ -37,12 +37,6 @@ public class ProjectTest {
 			e.printStackTrace();
 		}
 	}
-	
-	@Test @Ignore
-	public void ProductInsert() {
-		service.insertProduct(new Product("c", "b", 33, "스페인", "2015-01-15","치즈",0, "wine122.jpg"));
-		
-	}
 	@Test
 	public void ListUser() {
 		List<User> userList = service.getUserList();
