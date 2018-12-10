@@ -14,7 +14,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import admin.service.AdminService;
-import product.vo.Product;
 import user.vo.User;
 
 @RunWith(SpringJUnit4ClassRunner.class)

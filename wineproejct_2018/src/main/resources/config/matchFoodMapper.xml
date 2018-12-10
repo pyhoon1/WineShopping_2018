@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="matchfood.dao.MatchFoodMapper">
+	<select id="getMatchFoodList" parameterType="java.util.Map"
+		resultType="MatchFood">
+		select * from
+		matchFood order by matchFoodId limit
+		#{startRow}, #{size};
+	</select>
+	<select id="getMatchFood" parameterType="String" resultType="MatchFood">
+		select * from matchFood where matchFoodId = #{matchFoodId}
+	</select>
+	<select id="getMatchFoodCount" resultType="int">
+		select count(*) from
+		matchFood
+	</select>
+</mapper>

@@ -1,9 +1,6 @@
 package user.service;
 
-import java.io.UnsupportedEncodingException;
 import java.util.Random;
-
-import javax.mail.MessagingException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -123,7 +120,7 @@ public class UserServiceImplJDBC implements UserService {
 
 			case 0:
 				// A-Z
-				password += ((char) ((int) (rnd.nextInt(26)) + 65));
+				password += ((char) ((rnd.nextInt(26)) + 65));
 				break;
 			case 1:
 				// 0-9

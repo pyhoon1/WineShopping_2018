@@ -9,11 +9,9 @@
 	<!--회원가입 -->
 	<insert id="insertUser" parameterType="User">
 		insert into User(loginId,
-		password, userName, email, address, phone, birth,
-		totalAmount )
-		values(#{loginId}, #{password}, #{userName}, #{email},
-		#{address},
-		#{phone}, #{birth}, #{totalAmount})
+		password, userName, email, address, phone, birth )
+		values(#{loginId}, #{password}, #{userName}, #{email}, #{address},
+		#{phone}, #{birth})
 	</insert>
 
 	<!--로그인 할 때 이런 아이디가 없으면 존재하지 않는 아이디 입니다 라고 뜸 회원가입 할 때 이런 아이디가 이미 존재합니다 뜸 -->
@@ -37,7 +35,7 @@
 		from User where loginId = #{loginId} AND password =
 		#{password}
 	</select>
-	<!--아이디 찾기 -->
+	<!--아이디 찾기  -->
 	<select id="userLoginIdFind" parameterType="User" resultType="User">
 		select * from user where userName = #{userName} AND email = #{email}
 	</select>
