@@ -8,7 +8,7 @@ import product.vo.Product;
 import review.vo.Review;
 import user.vo.User;
 
-public interface AdminDao {
+public interface AdminDao { 
 	// 유저 목록을 불러옴
 	public List<User> readUserAll(); 
 	

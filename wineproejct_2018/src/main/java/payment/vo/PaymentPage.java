@@ -7,7 +7,7 @@ public class PaymentPage {
 
 	public static PaymentPage getInstance() {
 		return instance;
-	}
+	} 
 
 	private PaymentPage() {
 

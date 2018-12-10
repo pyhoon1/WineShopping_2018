@@ -19,7 +19,7 @@ public class Product {
 	private String weight;
 	private int stock;
 	private String img;
-
+ 
 	public Product() {
 
 	}

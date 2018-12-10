@@ -12,7 +12,7 @@ public class BasketPage {
 	private BasketPage() {
 
 	}
-
+ 
 	private List<Basket> basketList;
 	private int currentPage;
 	private int totalPages;

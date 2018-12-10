@@ -3,7 +3,7 @@ package user.service;
 import user.vo.User;
 
 public interface UserService {
-	// 회원가입
+	// 회원가입 
 	public User selectByUserId(int userId);
 
 	public User selectByLoginId(String loginId);

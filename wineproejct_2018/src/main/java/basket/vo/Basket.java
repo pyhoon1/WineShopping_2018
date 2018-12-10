@@ -17,7 +17,7 @@ public class Basket {
 	private int total;
 
 	public Basket() {
-
+ 
 	}
 
 	public Basket(int basketId, int userId, int productId, int matchFoodId, String productName, int productPrice,

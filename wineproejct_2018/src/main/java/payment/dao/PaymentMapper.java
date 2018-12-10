@@ -12,7 +12,7 @@ public interface PaymentMapper {
 	public List<Payment> getPaymentList(Map<String, Integer> page);
 
 	public int getPaymentCount(int userId);
-
+ 
 	public void foodPayment(FoodRequest foodRequest);
 
 	public void productPayment(ProductRequest productRequest);

@@ -10,7 +10,7 @@ public interface PaymentService {
 	public List<Payment> getPaymentList(int startRow, int size, int userId);
 
 	public int getPaymentCount(int userId);
-
+ 
 	public void foodPayment(FoodRequest foodRequest);
 
 	public void productPayment(ProductRequest productRequest);

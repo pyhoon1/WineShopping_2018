@@ -9,7 +9,7 @@
 		values(#{userId}, #{productId}, #{productName}, #{productPrice},#{productCount}, #{productImg}, #{total})
 	</insert>
 
-	<insert id="insertMatchFood" parameterType="FoodRequest">
+	<insert id="insertMatchFood" parameterType="FoodRequest"> 
 		insert into
 		basket(userId, matchFoodId, productName, productPrice, productCount,
 		productImg, total)

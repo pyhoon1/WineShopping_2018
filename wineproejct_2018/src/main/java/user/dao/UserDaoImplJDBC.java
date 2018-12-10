@@ -72,7 +72,7 @@ public class UserDaoImplJDBC implements UserDao {
 
 	public void insert(User user) {
 		userMapper.insertUser(user);
-
+ 
 	}
 
 	 

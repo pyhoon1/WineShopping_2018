@@ -37,6 +37,6 @@ public class MatchFoodDaoImplJDBC implements MatchFoodDao {
 	public int getMatchFoodCount() {
 		int count = matchFoodMapper.getMatchFoodCount();
 		return count;
-	}
+	} 
 
 }

@@ -11,3 +11,4 @@ public interface MatchFoodDao {
 
 	public int getMatchFoodCount();
 }
+ 

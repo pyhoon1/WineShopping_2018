@@ -10,3 +10,4 @@ public interface MatchFoodService {
 	public MatchFoodPage getMatchFoodList(int pageNum);
 
 }
+ 

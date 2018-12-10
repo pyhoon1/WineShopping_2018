@@ -12,7 +12,7 @@ public class MatchFoodPage {
 	private MatchFoodPage() {
 
 	}
-
+ 
 	private List<MatchFood> matchFoodList;
 	private int currentPage;
 	private int totalPages;

@@ -25,7 +25,7 @@ public class UserConroller {
 	@RequestMapping("/loginForm.do")
 	public String loginForm() {
 		return "loginForm";
-	}
+	} 
 
 	@RequestMapping(value = "/login.do", method = RequestMethod.POST)
 	public String loginUser(HttpServletRequest req, Model model, @RequestParam("loginId") String loginId,

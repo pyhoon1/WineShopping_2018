@@ -12,7 +12,7 @@ public class FoodRequest {
 	private int productCount;
 	private String productImg;
 	private int total;
-
+ 
 	public FoodRequest(int userId, int matchFoodId, String productName, int productPrice, int productCount,
 			String productImg, int total) {
 		super();

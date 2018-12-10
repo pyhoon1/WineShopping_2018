@@ -8,7 +8,7 @@ import basket.vo.ProductRequest;
 public interface BasketService {
 	// 장바구니 추가
 	public void insertProduct(ProductRequest productRequest);
-
+ 
 	// 음식만 추가하기
 	public void insertMatchFood(FoodRequest foodRequest);
 

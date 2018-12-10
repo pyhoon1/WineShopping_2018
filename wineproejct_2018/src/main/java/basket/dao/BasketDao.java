@@ -7,7 +7,7 @@ import basket.vo.FoodRequest;
 import basket.vo.ProductRequest;
 
 public interface BasketDao {
-
+ 
 	// 장바구니 추가
 	public void insertProduct(ProductRequest productRequest);
 

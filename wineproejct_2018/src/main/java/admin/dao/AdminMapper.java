@@ -12,7 +12,7 @@ import user.vo.User;
 public interface AdminMapper {
 	
 	//유저 맵퍼 
-	List<User> getUserList();
+	List<User> getUserList(); 
 	void deleteUser(int userId);
 	int updateUser(User user);
 	User getUserView(int userId);

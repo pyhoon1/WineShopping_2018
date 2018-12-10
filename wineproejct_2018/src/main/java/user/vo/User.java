@@ -10,7 +10,7 @@ public class User {
 	private String loginId;
 	private String password;
 	private String userName;
-	private String email;
+	private String email; 
 	private String emailAuthCode;
 	private String address;
 	private String phone;

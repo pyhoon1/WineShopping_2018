@@ -94,7 +94,7 @@
 		<property name="configLocation" value="classpath:config/SqlMapConfig.xml" />
 		<property name="typeAliasesPackage" value="*.vo" />
 		<property name="mapperLocations">
-			<list>
+			<list> 
 				<value>classpath:config/adminMapper.xml</value>
 				<value>classpath:config/userMapper.xml</value>
 				<value>classpath:config/productMapper.xml</value>

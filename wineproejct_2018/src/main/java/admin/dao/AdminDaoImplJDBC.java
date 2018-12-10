@@ -161,7 +161,7 @@ public class AdminDaoImplJDBC implements AdminDao {
 
 	
 	
-	public void insertMatchFood(MatchFood matchFood) {
+	public void insertMatchFood(MatchFood matchFood) { 
 		adminMapper.insertMatchFood(matchFood);	
 	}
 

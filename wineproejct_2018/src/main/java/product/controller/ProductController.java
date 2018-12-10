@@ -38,7 +38,7 @@ public class ProductController {
 		String[] matchFoodId = product.getMatchFoodId().split(",");
 		for (String string : matchFoodId) {
 			System.out.println(string);
-		}
+		} 
 		if (matchFoodId != null) {
 			List<MatchFood> matchFoodList = new ArrayList<MatchFood>();
 			for (int i = 0; i < matchFoodId.length; i++) {

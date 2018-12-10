@@ -11,7 +11,7 @@ import user.vo.User;
 public interface AdminService {
 
 	// 회원 목록을 출력
-	public List<User> getUserList();
+	public List<User> getUserList(); 
 	
 	// 관리자 계정만 수정
 	public int updateUser(User user);

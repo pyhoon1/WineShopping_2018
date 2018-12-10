@@ -308,9 +308,9 @@ public class AdminController {
 			}
 		}
 
-	}
+	} 
 
-	@RequestMapping(value = "/insertMatchFood.do")
+	@RequestMapping(value = "/adminInsertMatchFood.do")
 	@ResponseBody
 	public String insertMatchFood(HttpServletRequest request, @RequestParam("uploadFile") MultipartFile file,
 			@RequestParam HashMap<String, String> prm) {

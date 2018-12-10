@@ -11,7 +11,7 @@ public class ProductRequest {
 	private int productPrice;
 	private int productCount;
 	private String productImg;
-
+ 
 	private int total;
 	
 	public ProductRequest() {

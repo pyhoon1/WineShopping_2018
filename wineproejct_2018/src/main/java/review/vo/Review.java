@@ -14,7 +14,7 @@ public class Review {
 	private String content;
 	private LocalDateTime wdate;
 	private String state;
-	public Review() {}
+	public Review() {} 
 	
 	public Review(int reviewId, int productId, int userId, String loginId,String productName, String content, LocalDateTime wdate,
 			String state) {

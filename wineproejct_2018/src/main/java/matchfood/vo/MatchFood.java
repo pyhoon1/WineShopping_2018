@@ -14,7 +14,7 @@ public class MatchFood {
 	private String count;
 	private String weight;
 	private String ex;
-
+ 
 	public MatchFood() {
 
 	}

@@ -9,7 +9,7 @@ import basket.vo.ProductRequest;
 
 @BasketAnnotMapper
 public interface BasketMapper {
-
+ 
 	public void insertProduct(ProductRequest productRequest);
 
 	// 음식만 추가하기

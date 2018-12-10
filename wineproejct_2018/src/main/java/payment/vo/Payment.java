@@ -8,7 +8,7 @@ import org.apache.ibatis.type.Alias;
 public class Payment {
 	private int userId;
 	private int productId;
-	private String productName;
+	private String productName; 
 	private int productPrice;
 	private int basketCount;
 	private int total;

@@ -12,7 +12,7 @@ public interface PaymentDao {
 	public int getPaymentCount(int userId);
 
 	public void foodPayment(FoodRequest foodRequest);
-
+ 
 	public void productPayment(ProductRequest productRequest);
 
 	public void foodAndProductPayment(Payment payment);

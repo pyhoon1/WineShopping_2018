@@ -25,7 +25,7 @@ public class ProductServiceImplJDBC implements ProductService {
 		ProductPage productPage = new ProductPage(productList, pageNum, count, size, blockSize);
 		return productPage;
 	}
-
+ 
 	
 	public Product getProduct(int productId) {
 		return productDao.getProduct(productId);

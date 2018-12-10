@@ -12,4 +12,4 @@ public interface MatchFoodMapper {
 	public List<MatchFood> getMatchFoodList(Map<String, Integer> page);
 
 	public int getMatchFoodCount();
-}
+} 

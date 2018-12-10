@@ -23,7 +23,7 @@ public class MatchFoodServiceImplJDBC implements MatchFoodService {
 		// TODO Auto-generated method stub
 		return matchFoodDao.getMatchFood(matchFoodId);
 	}
-
+ 
 	
 	
 	public MatchFoodPage getMatchFoodList(int pageNum) {

@@ -48,7 +48,7 @@ public class BasketDaoImplJDBC implements BasketDao {
 		basketMapper.deleteProduct(basket);
 
 	}
-
+ 
 	
 	
 	public List<Basket> getBasketList(int startRow, int size, int userId) {

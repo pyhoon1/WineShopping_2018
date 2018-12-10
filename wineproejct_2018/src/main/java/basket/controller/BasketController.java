@@ -85,7 +85,7 @@ public class BasketController {
 		basketService.deleteAll(userId);
 		return "productListView";
 	}
-	/*
+	/* 
 	 * @RequestMapping("/deleteProduct.do") public String
 	 * deleteProduct(@RequestParam("userId") int userId, @RequestParam("productId")
 	 * int productId) { basketService.deleteProduct(new Basket(userId, productId));

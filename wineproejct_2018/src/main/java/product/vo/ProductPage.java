@@ -10,7 +10,7 @@ public class ProductPage {
 	}
 
 	private ProductPage() {
-
+ 
 	}
 
 	private List<Product> productList;

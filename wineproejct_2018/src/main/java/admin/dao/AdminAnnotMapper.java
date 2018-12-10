@@ -1,3 +1,3 @@
 package admin.dao;
 
-public @interface AdminAnnotMapper {} 
+public @interface AdminAnnotMapper {}  

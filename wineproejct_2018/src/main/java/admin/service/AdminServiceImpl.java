@@ -194,7 +194,7 @@ public class AdminServiceImpl implements AdminService{
 	public int hasWine(String productName) {
 		int check = admin.hasWine(productName);
 		return check;
-	}
+	} 
 
 	
 

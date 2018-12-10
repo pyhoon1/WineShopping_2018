@@ -4,7 +4,7 @@ import user.vo.User;
 
 public interface UserDao {
 	// 유저를 DB에 추가하는 메소드
-
+ 
 	// 유저정보를 가져오는 메소드
 	public User selectByUserId(int userId);
 

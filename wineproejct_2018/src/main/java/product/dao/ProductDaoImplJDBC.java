@@ -20,7 +20,7 @@ public class ProductDaoImplJDBC implements ProductDao {
 		Product product = productMapper.getProduct(productId);
 		return product;
 	}
-
+ 
 	
 	public List<Product> getProductList(int startRow, int size) {
 		Map<String, Integer> page = new HashMap<String, Integer>();

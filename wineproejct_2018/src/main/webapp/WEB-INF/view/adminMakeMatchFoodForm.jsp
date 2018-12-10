@@ -41,7 +41,7 @@
 				var formData = new FormData(form);
 
 				$.ajax({
-					url : 'insertMatchFood.do',
+					url : 'adminInsertMatchFood.do',
 					type : 'post',
 					data : formData,
 				    enctype:'multipart/form-data',

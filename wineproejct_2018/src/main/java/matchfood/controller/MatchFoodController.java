@@ -20,7 +20,7 @@ public class MatchFoodController {
 		MatchFood matchFood = matchFoodService.getMatchFood(matchFoodId);
 		model.addAttribute("matchFood", matchFood);
 		return "matchFoodView";
-	}
+	} 
 
 	@RequestMapping("/matchFoodList.do")
 	public String getMatchFoodList(Model model, @RequestParam("pageNum") int pageNum) {

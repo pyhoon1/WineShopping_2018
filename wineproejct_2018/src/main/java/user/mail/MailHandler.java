@@ -13,7 +13,7 @@ public class MailHandler {
 
 	private JavaMailSender mailSender;
 	private MimeMessage message;
-	private MimeMessageHelper messageHelper;
+	private MimeMessageHelper messageHelper; 
 
 	public MailHandler(JavaMailSender mailSender) throws MessagingException {
 		this.mailSender = mailSender;
