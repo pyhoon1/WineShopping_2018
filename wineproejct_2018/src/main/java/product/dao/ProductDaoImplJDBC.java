@@ -15,22 +15,22 @@ public class ProductDaoImplJDBC implements ProductDao {
 	@Autowired
 	private ProductMapper productMapper;
 
-	@Override
+	
 	public Product getProduct(int productId) {
 		Product product = productMapper.getProduct(productId);
 		return product;
 	}
 
-	@Override
+	
 	public List<Product> getProductList(int startRow, int size) {
-		Map<String, Integer> page = new HashMap<>();
+		Map<String, Integer> page = new HashMap<String, Integer>();
 		page.put("startRow", startRow);
 		page.put("size", size);
 		List<Product> productList = productMapper.getProductList(page);
 		return productList;
 	}
 
-	@Override
+	
 	public int getProductCount() {
 		return productMapper.getProductCount();
 	}

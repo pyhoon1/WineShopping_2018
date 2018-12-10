@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="basket.dao.BasketMapper">
+	<insert id="insertProduct" parameterType="ProductRequest">
+		insert into
+		basket(userId, productId, productName, productPrice, productCount, productImg, total)
+		values(#{userId}, #{productId}, #{productName}, #{productPrice},#{productCount}, #{productImg}, #{total})
+	</insert>
+
+	<insert id="insertMatchFood" parameterType="FoodRequest">
+		insert into
+		basket(userId, matchFoodId, productName, productPrice, productCount,
+		productImg, total)
+		values(#{userId}, #{matchFoodId}, #{productName},
+		#{productPrice},#{productCount}, #{productImg}, #{total})
+	</insert>
+	<insert id="insertProductMatchFood" parameterType="Basket">
+		insert into
+		basket(userId, productId, productName, productPrice, productCount,
+		productImg, matchFoodIdList, matchFoodCount, total)
+		values(#{userId},
+		#{productId}, #{productName},
+		#{productPrice}, #{productCount},
+		#{productImg}, #{matchFoodIdList}, #{matchFoodCount}, #{total})
+	</insert>
+	<select id="getBasketCount" parameterType="int" resultType="int">
+		select count(*) from basket where userId = #{userId}
+	</select>
+
+	<select id="getBasketList" parameterType="java.util.Map"
+		resultType="Basket">
+		select * from basket where userId = #{userId} order by
+		basketId limit ${startRow}, ${size}
+	</select>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd">
+
+	<!-- ViewResolver 설정 -->
+	<!-- 스프링이 가지고 있는 객체인데 컨트롤러에서의 실행 결과를 어떤 view에서 보여줄 것인지 결정하는 기능을 제공한다. -->
+	<!-- 여러 가지 ViewResolver가 있는데, 그중에서 우리는 InternalResourceViewResolver 라는 객체를 사용할 것임!! -->
+	<!-- 웹 어플리케이션의 WAR파일 내에 포함된 뷰 템플릿을 찾는다. -->
+	<!-- 경로는 논리적 뷰 이름에 접두어와 접미어를 붙여 구성한다. -->	
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/view/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+</beans>

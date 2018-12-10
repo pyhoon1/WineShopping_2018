@@ -16,16 +16,16 @@ public class MatchFoodDaoImplJDBC implements MatchFoodDao {
 	private MatchFoodMapper matchFoodMapper;
 
 	
-	@Override
+	
 	public MatchFood getMatchFood(String matchFoodId) {
 		MatchFood matchFood = matchFoodMapper.getMatchFood(matchFoodId);
 		return matchFood;
 	}
 
 	
-	@Override
+	
 	public List<MatchFood> getMatchFoodList(int startRow, int size) {
-		Map<String, Integer> page = new HashMap<>();
+		Map<String, Integer> page = new HashMap<String, Integer>();
 		page.put("startRow", startRow);
 		page.put("size", size);
 		List<MatchFood> matchFoodList = matchFoodMapper.getMatchFoodList(page);
@@ -33,7 +33,7 @@ public class MatchFoodDaoImplJDBC implements MatchFoodDao {
 	}
 
 	
-	@Override
+	
 	public int getMatchFoodCount() {
 		int count = matchFoodMapper.getMatchFoodCount();
 		return count;

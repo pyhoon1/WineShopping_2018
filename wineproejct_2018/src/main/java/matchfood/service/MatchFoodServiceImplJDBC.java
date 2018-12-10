@@ -18,14 +18,14 @@ public class MatchFoodServiceImplJDBC implements MatchFoodService {
 	private MatchFoodDao matchFoodDao;
 
 	
-	@Override
+	
 	public MatchFood getMatchFood(String matchFoodId) {
 		// TODO Auto-generated method stub
 		return matchFoodDao.getMatchFood(matchFoodId);
 	}
 
 	
-	@Override
+	
 	public MatchFoodPage getMatchFoodList(int pageNum) {
 		List<MatchFood> matchFoodList = matchFoodDao.getMatchFoodList((pageNum - 1) * size, size);
 

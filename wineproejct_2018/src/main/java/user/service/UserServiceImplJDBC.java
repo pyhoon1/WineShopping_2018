@@ -20,13 +20,13 @@ public class UserServiceImplJDBC implements UserService {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	@Override
+	 
 	public User loginUser(User user) {
 
 		return userDao.loginUser(user);
 	}
 
-	@Override
+	 
 	public void inserUser(User user) throws Exception {
 		userDao.insertUser(user);
 		String key = new TempKey().getKey(50, false); // 인증키 생성
@@ -41,65 +41,65 @@ public class UserServiceImplJDBC implements UserService {
 		sendMail.send();
 	}
 
-	@Override
+	 
 	public void updateUser(User user) {
 		userDao.updateUser(user);
 
 	}
 
-	@Override
+	 
 	public void RatingUpdate(User user) {
 		userDao.RatingUpdate(user);
 	}
 
-	@Override
+	 
 	public void totalAmountUpdate(User user) {
 		userDao.totalAmountUpdate(user);
 
 	}
 
-	@Override
+	 
 	public void deleteUser(int userId) {
 		userDao.deleteUser(userId);
 	}
 
-	@Override
+	 
 	public User selectByEmail(String email) {
 		User user = userDao.selectByEmail(email);
 		return user;
 	}
 
-	@Override
+	 
 	public User selectByLoginId(String loginId) {
 		User user = userDao.selectByLoginId(loginId);
 		return user;
 	}
 
-	@Override
+	 
 	public User selectByUserId(int userId) {
 		User user = userDao.selectByUserId(userId);
 		return user;
 	}
 
-	@Override
+	 
 	public User userLoginIdFind(User user) {
 		return userDao.userLoginIdFind(user);
 
 	}
 
-	@Override
+	 
 	public User userPasswordFind(User user) {
 
 		return userDao.userPasswordFind(user);
 	}
 
-	@Override
+	 
 	public void userStateUpdate(String email) {
 		userDao.userStateUpdate(email);
 
 	}
 
-	@Override
+	 
 	public void sendLoginId(User user) throws Exception {
 		MailHandler sendMail = new MailHandler(mailSender);
 		sendMail.setSubject("[ALMOM 서비스 이메일 인증]");
@@ -110,7 +110,7 @@ public class UserServiceImplJDBC implements UserService {
 		sendMail.send();
 	}
 
-	@Override
+	 
 	public void sendPassword(User user) throws Exception {
 		String password = "";
 		Random rnd = new Random();

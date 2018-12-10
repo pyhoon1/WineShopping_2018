@@ -18,7 +18,7 @@ public class ProductServiceImplJDBC implements ProductService {
 	int size = 10;
 	int blockSize = 5;
 
-	@Override
+	
 	public ProductPage getProductList(int pageNum) {
 		List<Product> productList = productDao.getProductList((pageNum - 1) * size, size);
 		int count = productDao.getProductCount();
@@ -26,7 +26,7 @@ public class ProductServiceImplJDBC implements ProductService {
 		return productPage;
 	}
 
-	@Override
+	
 	public Product getProduct(int productId) {
 		return productDao.getProduct(productId);
 	}

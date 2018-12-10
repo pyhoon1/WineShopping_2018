@@ -16,43 +16,43 @@ public class BasketDaoImplJDBC implements BasketDao {
 	@Autowired
 	private BasketMapper basketMapper;
 
-	@Override
+	
 	public void insertProduct(ProductRequest productRequest) {
 		basketMapper.insertProduct(productRequest);
 
 	}
 
-	@Override
+	
 	public void insertMatchFood(FoodRequest foodRequest) {
 		basketMapper.insertMatchFood(foodRequest);
 
 	}
 
 	
-	@Override
+	
 	public void insertProductMatchFood(Basket basket) {
 		basketMapper.insertProductMatchFood(basket);
 
 	}
 
 	
-	@Override
+	
 	public void deleteAll(int userId) {
 		basketMapper.deleteAll(userId);
 
 	}
 
 	
-	@Override
+	
 	public void deleteProduct(Basket basket) {
 		basketMapper.deleteProduct(basket);
 
 	}
 
 	
-	@Override
+	
 	public List<Basket> getBasketList(int startRow, int size, int userId) {
-		Map<String, Integer> page = new HashMap<>();
+		Map<String, Integer> page = new HashMap<String, Integer>();
 		page.put("startRow", startRow);
 		page.put("size", size);
 		page.put("userId", userId);
@@ -61,14 +61,14 @@ public class BasketDaoImplJDBC implements BasketDao {
 	}
 
 	
-	@Override
+	
 	public int getBasketCount(int userId) {
 		int count = basketMapper.getBasketCount(userId);
 		return count;
 	}
 
 	
-	@Override
+	
 	public Basket getBasket(Basket basket) {
 		return basketMapper.getBasket(basket);
 	}
