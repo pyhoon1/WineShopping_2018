@@ -123,7 +123,7 @@ public class UserServiceImplJDBC implements UserService {
 
 			case 0:
 				// A-Z
-				password += ((char) ((int) (rnd.nextInt(26)) + 65));
+				password += ((char) ((rnd.nextInt(26)) + 65));
 				break;
 			case 1:
 				// 0-9
