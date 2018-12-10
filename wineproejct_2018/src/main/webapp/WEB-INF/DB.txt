@@ -1,0 +1,98 @@
+create database wineproject;
+use wineproject;
+
+create table User(
+	userId int auto_increment primary key not null comment "유저 고유 번호",
+    loginId varchar(30) unique key comment "유저 아이디",
+    password varchar(30) not null comment "비밀 번호",
+    userName varchar(20) not null comment "유저 이름", 
+    email varchar(30) not null comment "이메일",
+    emailAuthCode varchar(30) not null comment "이메일 인증코드",
+    userState boolean default false comment "이메일 인증했는지 안했는지",
+    address varchar(30) not null comment "주소", 
+    phone varchar(30) not null comment "전화번호",
+    birth varchar(30) not null comment "생년월일",
+    rating varchar(1) default 'C' comment "회원 등급",
+    totalAmount int default 0 not null comment "총액",
+    wdate timestamp not null DEFAULT current_timestamp comment "가입일"                                                                                                                                                                                                                                          
+);
+ 
+create table Product(
+    productId int auto_increment primary key not null comment "상품 코드",
+    producer varchar(45) not null comment "생산자",
+    variety varchar(30) not null comment "포도 품종",
+    wineKinds varchar(30) not null comment "와인 종류",
+    productName varchar(30) not null comment "상품명",
+    wineEx text not null comment "와인 설명",
+    brandEx text not null comment "브랜드 설명",
+    price int not null comment "상품 가격",
+    nation varchar(30) not null comment "상품 원산지",
+    point int default 0 not null comment "적립금",
+    year varchar(30) not null comment "상품 년도",
+    matchFoodId varchar(30) not null comment "궁합이 좋은 음식",
+    stock int not null comment "상품 개수",
+    weight varchar(45) not null comment "용량",
+    temperature varchar(45) not null comment "온도",
+    img varchar(50) not null comment "상품 이미지"
+);
+
+# 리스트
+create table Review(
+	reviewId int auto_increment primary key comment "리뷰 고유 아이디",
+    productId int not null comment "상품 코드",
+    productName varchar(45) not null comment "상품 명",
+    userId int not null comment "유저 이름",
+    loginId varchar(30) not null comment "작성자 성명",
+    content text not null comment "리뷰 내용",
+    wdate timestamp not null DEFAULT current_timestamp comment "작성일",
+    state varchar(1) default 'Y'
+);
+
+# 리스트
+create table Basket(
+	basketId int auto_increment primary key not null comment "장바구니 고유 번호",
+    userId int not null comment "장바구니를 등록한 유저 아이디",
+    productId int not null comment "장버구니에 등록한 상품 아이디",
+    productName varchar(30) not null comment "장바구니에 등록한 상품 이름",
+    productPrice int not null comment "상품 가격",
+    productCount int not null comment "장바구니에 넣은 상품 갯수",
+    matchFoodId varchar(20) comment "잘 맞는 음식 리스트",
+    total int not null comment "장바구니 종합"
+);
+
+create table FoodBasket(
+	foodBasketId int auto_increment primary key not null comment "장바구니 고유 번호",
+    userId int not null comment "장바구니를 등록한 유저 아이디",
+	matchFoodId int comment "잘 맞는 음식 고유 번호",
+    matchFoodName varchar(30) unique key comment "잘 맞는 음식 이름",
+    price int not null comment "잘 맞는 음식 가격",
+    nation varchar(30) not null comment "원산지",
+    img varchar(45) not null comment "잘 맞는 음식 사진",
+    ex text not null comment "잘 맞는 음식 설명",
+    total int not null comment "장바구니 종합"
+);
+
+# 리스트
+create table Payment(
+	userId int not null comment "구매한 유저 아이디",
+    productId int not null comment "장버구니에 등록한 상품 아이디",
+    productName varchar(45) not null comment "장바구니에 등록한 상품 이름",
+    productPrice int not null comment "상품 가격",
+    basketCount int not null comment "장바구니에 넣은 상품 갯수",
+    total int not null comment "구매내역 종합",
+    wdate timestamp not null DEFAULT current_timestamp comment "작성일"
+);
+
+# 리스트
+create table matchFood(
+	matchFoodId int auto_increment primary key comment "잘 맞는 음식 고유 번호",
+    matchFoodName varchar(30) unique key comment "잘 맞는 음식 이름",
+    price int not null comment "잘 맞는 음식 가격",
+    nation varchar(30) not null comment "원산지",
+    nationImg varchar(50) not null comment "원산지이미지
+    img varchar(45) not null comment "잘 맞는 음식 사진",
+    wine varchar(35) not null comment "와인",
+    wineImg varchar(45) not null comment "와인 사진",
+    weight varchar(45) not null comment "중량",
+    ex text not null comment "잘 맞는 음식 설명"
+);

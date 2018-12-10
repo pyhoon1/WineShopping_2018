@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--모델에 대한 정보 등록만 해주면 됨-->
+<configuration>
+	<typeAliases>
+		<typeAlias type="user.vo.User" alias="User"/>
+		<typeAlias type="product.vo.Product" alias="Product"/>
+		<typeAlias type="user.vo.User" alias="User"/>
+		<typeAlias type="review.vo.Review" alias="Review"/>
+		<typeAlias type="payment.vo.Payment" alias="Payment"/>
+		<typeAlias type="matchfood.vo.MatchFood" alias="MatchFood"/>
+	</typeAliases>
+</configuration>

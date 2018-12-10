@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 우리가 jdbc로 작성했떤 쿼리문을 여기다가 만들면됨 -->
+<mapper namespace="user.dao.UserMapper">
+
+	<!--회원가입 -->
+	<insert id="insertUser" parameterType="User">
+		insert into User(loginId,
+		password, userName, email, address, phone, birth,
+		totalAmount )
+		values(#{loginId}, #{password}, #{userName}, #{email},
+		#{address},
+		#{phone}, #{birth}, #{totalAmount})
+	</insert>
+
+	<!--로그인 할 때 이런 아이디가 없으면 존재하지 않는 아이디 입니다 라고 뜸 회원가입 할 때 이런 아이디가 이미 존재합니다 뜸 -->
+	<select id="selectByLoginId" parameterType="String" resultType="User">
+		select * from user where
+		loginId = #{loginId}
+	</select>
+	<!-- 회원가입 할 때 이메일 이미 존재합니다 뜸 -->
+	<select id="selectByEmail" parameterType="String" resultType="User">
+		select * from user where email = #{email}
+	</select>
+
+	<!-- 마이페이지에 씀 유저정보를 가져옴 -->
+	<select id="selectUserById" parameterType="int" resultType="User">
+		select * from User where userId=#{userId}
+	</select>
+
+	<!-- 로그인할 때 쓰는 것 -->
+	<select id="loginUser" parameterType="User" resultType="User">
+		select *
+		from User where loginId = #{loginId} AND password =
+		#{password}
+	</select>
+	<!--아이디 찾기 -->
+	<select id="userLoginIdFind" parameterType="User" resultType="User">
+		select * from user where userName = #{userName} AND email = #{email}
+	</select>
+	<select id="userPasswordFind" parameterType="User" resultType="User">
+		select * from user where loginId = #{loginId} AND userName =
+		#{userName} AND email = #{email}
+	</select>
+	<update id="updateUser" parameterType="User">
+		update User set password =
+		#{password}, address = #{address} where userId = #{userId}
+	</update>
+	<update id="RatingUpdate" parameterType="String">
+		update User set rating =
+		${rating} where userId = #{userId}
+	</update>
+	<update id="totalAmountUpdate" parameterType="User">
+		update User set
+		totalAmount = #{totalAmount} where userId = #{userId}
+	</update>
+	<update id="createAuthKey" parameterType="User">
+		update User set
+		emailAuthCode = #{emailAuthCode} where email =
+		#{email}
+	</update>
+	<update id="userStateUpdate" parameterType="String">
+		update User set
+		userState = true where email = #{email}
+	</update>
+	<delete id="deleteUser" parameterType="int">
+		delete from User where
+		userId = #{userId}
+	</delete>
+</mapper>
