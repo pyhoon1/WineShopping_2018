@@ -5,51 +5,65 @@ import org.apache.ibatis.type.Alias;
 @Alias("Product")
 public class Product {
 	private int productId;
+	private String producer;
+	private String variety;
+	private String wineKinds;
 	private String productName;
-	private String ex;
+	private String wineEx;
+	private String brandEx;
 	private int price;
 	private String nation;
 	private String year;
+	private String matchFoodId;
 	private String matchFoodName;
+	private String weight;
 	private int stock;
 	private String img;
 
 	public Product() {
-	}
-	
-	
 
-	public Product(int productId, String productName, String ex, int price, String nation, String year,
-			String matchFoodName, int stock, String img) {
+	}
+
+	public Product(int productId, String producer, String variety, String wineKinds, String productName, String wineEx,
+			String brandEx, int price, String nation, String year, String matchFoodId, String matchFoodName,
+			String weight, int stock, String img) {
 		super();
 		this.productId = productId;
+		this.producer = producer;
+		this.variety = variety;
+		this.wineKinds = wineKinds;
 		this.productName = productName;
-		this.ex = ex;
+		this.wineEx = wineEx;
+		this.brandEx = brandEx;
 		this.price = price;
 		this.nation = nation;
 		this.year = year;
+		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
+		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
 	}
-	
 
-
-
-	public Product(String productName, String ex, int price, String nation, String year, String matchFoodName, int stock,
+	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
+			int price, String nation, String year, String matchFoodId, String matchFoodName, String weight, int stock,
 			String img) {
 		super();
+		this.producer = producer;
+		this.variety = variety;
+		this.wineKinds = wineKinds;
 		this.productName = productName;
-		this.ex = ex;
+		this.wineEx = wineEx;
+		this.brandEx = brandEx;
 		this.price = price;
 		this.nation = nation;
 		this.year = year;
+		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
+		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
 	}
-
-
 
 	public int getProductId() {
 		return productId;
@@ -57,6 +71,30 @@ public class Product {
 
 	public void setProductId(int productId) {
 		this.productId = productId;
+	}
+
+	public String getProducer() {
+		return producer;
+	}
+
+	public void setProducer(String producer) {
+		this.producer = producer;
+	}
+
+	public String getVariety() {
+		return variety;
+	}
+
+	public void setVariety(String variety) {
+		this.variety = variety;
+	}
+
+	public String getWineKinds() {
+		return wineKinds;
+	}
+
+	public void setWineKinds(String wineKinds) {
+		this.wineKinds = wineKinds;
 	}
 
 	public String getProductName() {
@@ -67,12 +105,20 @@ public class Product {
 		this.productName = productName;
 	}
 
-	public String getEx() {
-		return ex;
+	public String getWineEx() {
+		return wineEx;
 	}
 
-	public void setEx(String ex) {
-		this.ex = ex;
+	public void setWineEx(String wineEx) {
+		this.wineEx = wineEx;
+	}
+
+	public String getBrandEx() {
+		return brandEx;
+	}
+
+	public void setBrandEx(String brandEx) {
+		this.brandEx = brandEx;
 	}
 
 	public int getPrice() {
@@ -99,12 +145,28 @@ public class Product {
 		this.year = year;
 	}
 
-	public String getmatchFoodName() {
+	public String getMatchFoodId() {
+		return matchFoodId;
+	}
+
+	public void setMatchFoodId(String matchFoodId) {
+		this.matchFoodId = matchFoodId;
+	}
+
+	public String getMatchFoodName() {
 		return matchFoodName;
 	}
 
-	public void setmatchFoodName(String matchFoodName) {
+	public void setMatchFoodName(String matchFoodName) {
 		this.matchFoodName = matchFoodName;
+	}
+
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
 	}
 
 	public int getStock() {
@@ -114,4 +176,13 @@ public class Product {
 	public void setStock(int stock) {
 		this.stock = stock;
 	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 }

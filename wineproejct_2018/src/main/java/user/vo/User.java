@@ -21,7 +21,7 @@ public class User {
 	private Boolean userState;
 
 	public User() {
-
+ 
 	}
 
 	public User(int userId, String loginId, String password, String userName, String email, String emailAuthCode,
@@ -57,7 +57,6 @@ public class User {
 
 	public User(int userId, String loginId, String password, String userName, String email, String address,
 			String phone, String birth) {
-		this.userId = userId;
 		this.loginId = loginId;
 		this.password = password;
 		this.userName = userName;

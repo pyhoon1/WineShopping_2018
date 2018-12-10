@@ -6,7 +6,7 @@ import user.vo.User;
 
 public interface UserMapper {
 
-	public User selectByUserId(int userId); 
+	public User selectByUserId(int userId);
 
 	public User selectByLoginId(String loginId);
 

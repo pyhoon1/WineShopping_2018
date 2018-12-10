@@ -13,7 +13,7 @@ public interface UserService {
 	public User userLoginIdFind(User User);
 
 	public User userPasswordFind(User user);
-
+ 
 	public User loginUser(User user);
 
 	// 유저정보를 삭제하는 메소드

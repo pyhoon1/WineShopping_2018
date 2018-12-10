@@ -5,14 +5,14 @@ import java.util.Random;
 public class TempKey {
 
 	private boolean lowerCheck;
-	private int size; 
+	private int size;
 
 	public String getKey(int size, boolean lowerCheck) {
 		this.size = size;
 		this.lowerCheck = lowerCheck;
 		return init();
 	}
- 
+
 	private String init() {
 		Random ran = new Random();
 		StringBuffer sb = new StringBuffer();
