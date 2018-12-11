@@ -13,20 +13,22 @@ public class Product {
 	private String brandEx;
 	private int price;
 	private String nation;
+	private String nationImg;
 	private String year;
 	private String matchFoodId;
 	private String matchFoodName;
 	private String weight;
 	private int stock;
 	private String img;
+	private int count;
  
 	public Product() {
 
 	}
 
 	public Product(int productId, String producer, String variety, String wineKinds, String productName, String wineEx,
-			String brandEx, int price, String nation, String year, String matchFoodId, String matchFoodName,
-			String weight, int stock, String img) {
+			String brandEx, int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,
+			String weight, int stock, String img,int count) {
 		super();
 		this.productId = productId;
 		this.producer = producer;
@@ -37,17 +39,19 @@ public class Product {
 		this.brandEx = brandEx;
 		this.price = price;
 		this.nation = nation;
+		this.nationImg = nationImg;
 		this.year = year;
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
 		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
+		this.count= count;
 	}
 
 	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
-			int price, String nation, String year, String matchFoodId, String matchFoodName, String weight, int stock,
-			String img) {
+			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName, String weight, int stock,
+			String img , int count) {
 		super();
 		this.producer = producer;
 		this.variety = variety;
@@ -57,12 +61,32 @@ public class Product {
 		this.brandEx = brandEx;
 		this.price = price;
 		this.nation = nation;
+		this.nationImg= nationImg;
 		this.year = year;
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
 		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
+		this.count = count;
+	}
+	
+	
+
+	public String getNationImg() {
+		return nationImg;
+	}
+
+	public void setNationImg(String nationImg) {
+		this.nationImg = nationImg;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
 	}
 
 	public int getProductId() {
