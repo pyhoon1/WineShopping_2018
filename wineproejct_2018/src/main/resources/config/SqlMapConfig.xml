@@ -14,7 +14,7 @@
 		<typeAlias type="basket.vo.FoodRequest" alias="FoodRequest" />
 		<typeAlias type="basket.vo.ProductRequest" alias="ProductRequest" />
 		<typeAlias type="basket.vo.Basket" alias="Basket" />
-		
+		<typeAlias type="review.vo.Review" alias="Review" />
 		
 	</typeAliases>
 </configuration>

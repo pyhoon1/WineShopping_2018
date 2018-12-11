@@ -87,6 +87,11 @@
 		<property name="basePackage" value="payment.dao" />
 		<property name="annotationClass" value="payment.dao.PaymentAnnotMapper" />
 	</bean>
+	
+		<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="review.dao" />
+		<property name="annotationClass" value="review.dao.ReviewAnnotMapper" />
+	</bean>
 
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
@@ -101,6 +106,7 @@
 				<value>classpath:config/matchFoodMapper.xml</value>
 				<value>classpath:config/basketMapper.xml</value>
 				<value>classpath:config/paymentMapper.xml</value>
+				<value>classpath:config/reviewMapper.xml</value>
 			</list>
 		</property>
 	</bean>
