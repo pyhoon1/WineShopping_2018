@@ -300,7 +300,7 @@ public class AdminController {
 
 	} 
 
-	@RequestMapping(value = "/adminInsertWine.do")
+	@RequestMapping(value = "/adminInsertWine.do") 
 	@ResponseBody
 	public String insertWine(HttpServletRequest request, @RequestParam("uploadFile") MultipartFile file,
 			@RequestParam HashMap<String, String> prm) {
