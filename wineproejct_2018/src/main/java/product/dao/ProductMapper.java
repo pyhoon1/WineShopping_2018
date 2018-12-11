@@ -9,8 +9,11 @@ import product.vo.Product;
 public interface ProductMapper {
 
 	public Product getProduct(int productId);
- 
+
 	public List<Product> getProductList(Map<String, Integer> page);
-	
+
 	public int getProductCount();
+
+	public List<Product> manySaleProduct();
+
 }

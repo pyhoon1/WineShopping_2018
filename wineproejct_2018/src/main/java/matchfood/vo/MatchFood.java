@@ -14,28 +14,31 @@ public class MatchFood {
 	private String wineImg;
 	private String weight;
 	private String ex;
- 
+	private String count;
+
 	public MatchFood() {
 
 	}
 
-	public MatchFood(int matchFoodId, String matchFoodName, int price, String nation,String nationImg, String img,
-			String wine, String wineImg, String weight,String ex) {
+	public MatchFood(int matchFoodId, String matchFoodName, int price, String nation, String nationImg, String img,
+			String wine, String wineImg, String weight, String ex, String count) {
 		super();
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
 		this.price = price;
 		this.nation = nation;
 		this.nationImg = nationImg;
-		this.weight = weight;
 		this.img = img;
 		this.wine = wine;
 		this.wineImg = wineImg;
+		this.weight = weight;
 		this.ex = ex;
+		this.count = count;
 	}
 
-	public MatchFood(String matchFoodName, int price, String nation,String nationImg, String img,String wine ,String wineImg,
-			String weight, String ex) {
+	public MatchFood(String matchFoodName, int price, String nation, String nationImg, String img, String wine,
+			String wineImg, String weight, String ex) {
+		super();
 		this.matchFoodName = matchFoodName;
 		this.price = price;
 		this.nation = nation;
@@ -45,24 +48,6 @@ public class MatchFood {
 		this.wineImg = wineImg;
 		this.weight = weight;
 		this.ex = ex;
-	}
-
-	
-	
-	public String getNationImg() {
-		return nationImg;
-	}
-
-	public void setNationImg(String nationImg) {
-		this.nationImg = nationImg;
-	}
-
-	public String getWine() {
-		return wine;
-	}
-
-	public void setWine(String wine) {
-		this.wine = wine;
 	}
 
 	public int getMatchFoodId() {
@@ -97,12 +82,12 @@ public class MatchFood {
 		this.nation = nation;
 	}
 
-	public String getWeight() {
-		return weight;
+	public String getNationImg() {
+		return nationImg;
 	}
 
-	public void setWeight(String weight) {
-		this.weight = weight;
+	public void setNationImg(String nationImg) {
+		this.nationImg = nationImg;
 	}
 
 	public String getImg() {
@@ -113,6 +98,14 @@ public class MatchFood {
 		this.img = img;
 	}
 
+	public String getWine() {
+		return wine;
+	}
+
+	public void setWine(String wine) {
+		this.wine = wine;
+	}
+
 	public String getWineImg() {
 		return wineImg;
 	}
@@ -121,12 +114,28 @@ public class MatchFood {
 		this.wineImg = wineImg;
 	}
 
+	public String getWeight() {
+		return weight;
+	}
+
+	public void setWeight(String weight) {
+		this.weight = weight;
+	}
+
 	public String getEx() {
 		return ex;
 	}
 
 	public void setEx(String ex) {
 		this.ex = ex;
+	}
+
+	public String getCount() {
+		return count;
+	}
+
+	public void setCount(String count) {
+		this.count = count;
 	}
 
 }

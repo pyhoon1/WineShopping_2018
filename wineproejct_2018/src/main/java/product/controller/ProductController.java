@@ -25,7 +25,7 @@ public class ProductController {
 	private MatchFoodService matchFoodservice;
 
 	@RequestMapping(value = "/productList.do", method = RequestMethod.GET)
-	public String getProductList(Model model, @RequestParam("pageNum") int pageNum) {
+	public String getProductList(Model model, @RequestParam(value = "pageNum", required = false) int pageNum) {
 		ProductPage productList = productService.getProductList(pageNum);
 		model.addAttribute("productPage", productList);
 		return "productListView";
@@ -34,23 +34,28 @@ public class ProductController {
 	@RequestMapping(value = "/productView.do", method = RequestMethod.GET)
 	public String getProduct(Model model, @RequestParam("productId") int productId) {
 		Product product = productService.getProduct(productId);
-
 		String[] matchFoodId = product.getMatchFoodId().split(",");
 		for (String string : matchFoodId) {
 			System.out.println(string);
-		} 
+		}
 		if (matchFoodId != null) {
 			List<MatchFood> matchFoodList = new ArrayList<MatchFood>();
 			for (int i = 0; i < matchFoodId.length; i++) {
-
 				matchFoodList.add(matchFoodservice.getMatchFood(matchFoodId[i]));
-
 			}
 			model.addAttribute("matchFoodList", matchFoodList);
 		}
 		model.addAttribute("product", product);
-
 		return "productView";
+	}
 
+	@RequestMapping("/main.do")
+	public String goMain(Model model) {
+		List<Product> products = productService.manySaleProduct();
+		ProductPage products1 = productService.getProductList(1);
+		model.addAttribute("products", products);
+		model.addAttribute("products1", products1);
+
+		return "main";
 	}
 }

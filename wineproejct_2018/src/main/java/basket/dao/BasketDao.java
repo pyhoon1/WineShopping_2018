@@ -5,9 +5,10 @@ import java.util.List;
 import basket.vo.Basket;
 import basket.vo.FoodRequest;
 import basket.vo.ProductRequest;
+import matchfood.vo.MatchFood;
 
 public interface BasketDao {
- 
+
 	// 장바구니 추가
 	public void insertProduct(ProductRequest productRequest);
 
@@ -30,4 +31,10 @@ public interface BasketDao {
 	public int getBasketCount(int userId);
 
 	public Basket getBasket(Basket basket);
+
+	public List<Basket> selectByUserId(int userId);
+
+	public int productTotal(int userId);
+
+	public int matchFoodTotal(String matchFoodId);
 }

@@ -12,20 +12,7 @@
 	<select id="getPaymentCount">
 		select * from payment where userId = #{userId}
 	</select>
-	<insert id="foodPayment">
-		insert into payment(userId, matchFoodId, productName,
-		productPrice, productCount, productImg, total) values(#{userId},
-		#{matchFoodId},#{productName},#{productPrice},#{productCount},#{productImg},#{total})
-	</insert>
-	<insert id="productPayment">
-		insert into payment(userId, productId, productName,
-		productPrice, productCount, productImg, total) values(#{userId},
-		#{productId},#{productName},#{productPrice},#{productCount},#{productImg},#{total})
-	</insert>
-	<insert id="foodAndProductPayment">
-		insert into payment(userId, productId, productName,
-		productPrice, productCount, productImg, matchFoodIdList,
-		matchFoodCount,total) values(#{userId},
-		#{productId},#{productName},#{productPrice},#{productCount},#{productImg},#{matchFoodIdList},#{matchFoodCount},#{total})
+	<insert id="Payment" parameterType="Payment">
+		insert into payment(userId,)
 	</insert>
 </mapper>

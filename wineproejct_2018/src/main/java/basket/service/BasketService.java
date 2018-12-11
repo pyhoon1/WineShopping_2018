@@ -1,14 +1,17 @@
 package basket.service;
 
+import java.util.List;
+
 import basket.vo.Basket;
 import basket.vo.BasketPage;
 import basket.vo.FoodRequest;
 import basket.vo.ProductRequest;
+import matchfood.vo.MatchFood;
 
 public interface BasketService {
 	// 장바구니 추가
 	public void insertProduct(ProductRequest productRequest);
- 
+
 	// 음식만 추가하기
 	public void insertMatchFood(FoodRequest foodRequest);
 
@@ -25,5 +28,11 @@ public interface BasketService {
 	public BasketPage getBasketList(int pageNum, int userId);
 
 	public Basket getBasket(Basket basket);
+
+	public List<Basket> selectByUserId(int userId);
+
+	public int productTotal(int userId);
+
+	public int matchFoodTotal(String matchFoodId);
 
 }

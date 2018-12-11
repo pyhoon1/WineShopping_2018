@@ -10,47 +10,38 @@ import org.springframework.stereotype.Repository;
 import basket.vo.Basket;
 import basket.vo.FoodRequest;
 import basket.vo.ProductRequest;
+import matchfood.vo.MatchFood;
 
 @Repository("basketDao")
 public class BasketDaoImplJDBC implements BasketDao {
 	@Autowired
 	private BasketMapper basketMapper;
 
-	
 	public void insertProduct(ProductRequest productRequest) {
 		basketMapper.insertProduct(productRequest);
 
 	}
 
-	
 	public void insertMatchFood(FoodRequest foodRequest) {
 		basketMapper.insertMatchFood(foodRequest);
 
 	}
 
-	
-	
 	public void insertProductMatchFood(Basket basket) {
 		basketMapper.insertProductMatchFood(basket);
 
 	}
 
-	
-	
 	public void deleteAll(int userId) {
 		basketMapper.deleteAll(userId);
 
 	}
 
-	
-	
 	public void deleteProduct(Basket basket) {
 		basketMapper.deleteProduct(basket);
 
 	}
- 
-	
-	
+
 	public List<Basket> getBasketList(int startRow, int size, int userId) {
 		Map<String, Integer> page = new HashMap<String, Integer>();
 		page.put("startRow", startRow);
@@ -60,17 +51,30 @@ public class BasketDaoImplJDBC implements BasketDao {
 		return basketList;
 	}
 
-	
-	
 	public int getBasketCount(int userId) {
 		int count = basketMapper.getBasketCount(userId);
 		return count;
 	}
 
-	
-	
 	public Basket getBasket(Basket basket) {
 		return basketMapper.getBasket(basket);
+	}
+
+	public List<Basket> selectByUserId(int userId) {
+		List<Basket> basketList = basketMapper.selectByUserId(userId);
+		return basketList;
+	}
+
+	public int productTotal(int userId) {
+
+		return basketMapper.productTotal(userId);
+
+	}
+
+	public int matchFoodTotal(String matchFoodId) {
+
+		return basketMapper.matchFoodTotal(matchFoodId);
+
 	}
 
 }

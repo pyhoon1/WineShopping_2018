@@ -8,7 +8,7 @@
 	<select id="getProductList" parameterType="java.util.Map"
 		resultType="Product">
 		select * from
-		product order by productId limit #{startRow},
+		product order by productId desc limit #{startRow},
 		#{size};
 	</select>
 	<select id="getProduct" parameterType="int" resultType="Product">
@@ -17,6 +17,9 @@
 	</select>
 	<select id="getProductCount" resultType="int">
 		select count(*) from product
+	</select>
+	<select id="manySaleProduct" resultType="Product">
+		select * from product order by count desc limit 1, 5
 	</select>
 
 </mapper>

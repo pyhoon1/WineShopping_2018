@@ -23,28 +23,32 @@ public class BasketController {
 	private BasketService basketService;
 	@Autowired
 	private MatchFoodService matchFoodService;
+
 	@RequestMapping("/userBasket.do")
 	public String goUserbasket() {
 		return "userBasket";
 	}
+	
 	@RequestMapping("/getBasketList.do")
 	public String getBasketList(Model model, @RequestParam("pageNum") int pageNum, @RequestParam("userId") int userId) {
 		BasketPage basketPage = basketService.getBasketList(pageNum, userId);
+		int total = basketService.productTotal(userId);
 		for (int i = 0; i < basketPage.getBasketList().size(); i++) {
 			if (basketPage.getBasketList().get(i).getMatchFoodIdList() != null) {
 				String[] matchFoodId = basketPage.getBasketList().get(i).getMatchFoodIdList().split(",");
 				String[] matchFoodCount = basketPage.getBasketList().get(i).getMatchFoodCount().split(",");
 				List<MatchFood> matchFoodList = new ArrayList<MatchFood>();
-				for (int j = 0; j < matchFoodId.length ; j++) {
+				for (int j = 0; j < matchFoodId.length; j++) {
 					MatchFood matchFood = matchFoodService.getMatchFood(matchFoodId[j]);
 					matchFood.setCount(matchFoodCount[j]);
 					matchFoodList.add(matchFood);
+					total += basketService.matchFoodTotal(matchFoodId[j]) * Integer.parseInt(matchFoodCount[j]);
 				}
 				model.addAttribute("matchFoodList" + basketPage.getBasketList().get(i).getBasketId(), matchFoodList);
-
 			}
 		}
 		model.addAttribute("basketPage", basketPage);
+		model.addAttribute("total", total);
 		return "userBasket";
 	}
 
@@ -85,7 +89,7 @@ public class BasketController {
 		basketService.deleteAll(userId);
 		return "productListView";
 	}
-	/* 
+	/*
 	 * @RequestMapping("/deleteProduct.do") public String
 	 * deleteProduct(@RequestParam("userId") int userId, @RequestParam("productId")
 	 * int productId) { basketService.deleteProduct(new Basket(userId, productId));

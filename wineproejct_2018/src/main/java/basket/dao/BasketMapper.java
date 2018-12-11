@@ -6,6 +6,7 @@ import java.util.Map;
 import basket.vo.Basket;
 import basket.vo.FoodRequest;
 import basket.vo.ProductRequest;
+import matchfood.vo.MatchFood;
 
 @BasketAnnotMapper
 public interface BasketMapper {
@@ -31,5 +32,11 @@ public interface BasketMapper {
 	public List<Basket> getBasketList(Map<String, Integer> page);
 
 	public Basket getBasket(Basket basket);
+	
+	public List<Basket> selectByUserId(int userId);
+	
+	public int productTotal(int userId);
+	
+	public int matchFoodTotal(String matchFoodId);
 
 }
