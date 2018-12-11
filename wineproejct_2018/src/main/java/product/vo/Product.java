@@ -17,8 +17,9 @@ public class Product {
 	private String year;
 	private String matchFoodId;
 	private String matchFoodName;
+	private String alcohol;
 	private String weight;
-	private int stock;
+	private String temperature;
 	private String img;
 	private int count;
 
@@ -28,7 +29,7 @@ public class Product {
 
 	public Product(int productId, String producer, String variety, String wineKinds, String productName, String wineEx,
 			String brandEx, int price, String nation, String nationImg, String year, String matchFoodId,
-			String matchFoodName, String weight, int stock, String img, int count) {
+			String matchFoodName, String alcohol,String weight, String temperature, String img, int count) {
 		this.productId = productId;
 		this.producer = producer;
 		this.variety = variety;
@@ -42,15 +43,16 @@ public class Product {
 		this.year = year;
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
+		this.alcohol = alcohol;
 		this.weight = weight;
-		this.stock = stock;
+		this.temperature = temperature;
 		this.img = img;
 		this.count = count;
 	}
 
 	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
-			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,
-			String weight, int stock, String img) {
+			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,String alcohol,
+			String weight,String temperature , String img) {
 		this.producer = producer;
 		this.variety = variety;
 		this.wineKinds = wineKinds;
@@ -63,11 +65,13 @@ public class Product {
 		this.year = year;
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
+		this.alcohol = alcohol;
 		this.weight = weight;
-		this.stock = stock;
+		this.temperature = temperature;
 		this.img = img;
 	}
 
+	
 	public String getNationImg() {
 		return nationImg;
 	}
@@ -188,12 +192,20 @@ public class Product {
 		this.weight = weight;
 	}
 
-	public int getStock() {
-		return stock;
+	public String getAlcohol() {
+		return alcohol;
 	}
 
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setAlcohol(String alcohol) {
+		this.alcohol = alcohol;
+	}
+
+	public String getTemperature() {
+		return temperature;
+	}
+
+	public void setTemperature(String temperature) {
+		this.temperature = temperature;
 	}
 
 	public String getImg() {
