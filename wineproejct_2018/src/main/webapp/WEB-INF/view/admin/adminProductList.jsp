@@ -12,18 +12,35 @@
 		
 	</script>
 	<script type="text/javascript">
-		/* function User() {
-			location.href = "adminUserList.do";
-		}
-		function Product() {
-			location.href = "adminProductList.do";
-		}
 		function MakeMatchFood() {
 			location.href = "adminMakeMatchFoodForm.do";
 		}
 		function MakeWine(){
 			location.href ="adminMakeWineForm.do";
-		} */
+		}
+		
+		function deleteWine(productId,productName,img){
+			if(confirm(productName+"을 삭제하시겠습니까?")){
+				var information = {
+						'productId' : productId,
+						'img' : img
+				}
+				$.ajax({
+					url : 'deleteWine.do',
+					type : 'post',
+					data : information,
+					error : function(error) {
+						console.log(error);
+					},
+					success : function() {
+						alert('제품을 삭제하였습니다.')
+						location.href="adminProductList.do"
+					}
+				})
+			}else{
+				return false;
+			}
+		}
 		
 		function deleteMatchFood(matchFoodId,matchFoodName,img) {
 			if(confirm(matchFoodName+"을 삭제하시겠습니까?")){
@@ -69,12 +86,12 @@
 				<td>용량</td>
 				<td>온도</td>
 			</tr>
-			<tr>
-				<c:forEach items="${productList}" var="product">
+			<c:forEach items="${productList}" var="product">
+			<tr>	
 					<td>${product.producer}</td>
 					<td>${product.variety}</td>
 					<td>${product.wineKinds}</td>
-					<td>${product.productName}</td>
+					<td><a href="adminWineView.do?productId=${product.productId}" >${product.productName}</a></td>
 					<td>${product.wineEx}</td>
 					<td>${product.brandEx}</td>
 					<td>${product.price}</td>
@@ -83,9 +100,10 @@
 					<td>${product.matchFoodName}</td>
 					<td>${product.weight}</td>
 					<td>${product.temperature}</td>
-				</c:forEach>
+					<td><input type="button" onclick="deleteWine('${product.productId}','${product.productName}','${product.img}')" value="제품 삭제"></td>
 			</tr>
-		</table>
+							</c:forEach>
+		</table>	
 		<input type="button" value="와인 등록" onclick="MakeWine()">
 		<table>
 			<caption>부가 상품 목록</caption>

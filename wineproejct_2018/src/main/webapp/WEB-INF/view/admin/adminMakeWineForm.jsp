@@ -38,41 +38,148 @@ function hasWine() {
 };
 
 }
-var product = "";
-$('#food').click(function(){
-	if (this.checked) {
-		product += $(this).val() + ",";
-		
-		document.getElementById('product').value = product;
-	} else {
-		var productL = product.split(',');
-		var prdouctId = product.split(',', productL.length - 1);
-		for ( var i in prdouctId) {
-			if (prdouctId[i] == $(this).val()) {
-				prdouctId.splice(i, 1);
+$(function() {
+	var product = "";
+	var products = "";
+	$('input:checkbox[name="matchfood"]').click(function() {
+		if (this.checked) {
+			document.getElementById('matchFoodName').value += $(this).val() + ",";	
+			document.getElementById('matchFoodId').value += document.getElementById($(this).val()).value + ",";
+		} else {
+			var productL = document.getElementById('matchFoodName').value.split(',');
+			var productLs = document.getElementById('matchFoodId').value.split(',');
+			var productId = document.getElementById('matchFoodName').value.split(',', productL.length - 1);
+			var productIds = document.getElementById('matchFoodId').value.split(',', productLs.length -1);
+			for ( var i in productId) {
+				if (productId[i] == $(this).val()) {
+					productId.splice(i, 1);
+				}
 			}
-		}
-		product = "";
-		for ( var i in prdouctId) {
-			product += prdouctId[i] + ",";
+			for (var s in productIds){
+				if (productIds[s] == document.getElementById($(this).val()).value){
+					productIds.splice(s, 1);
+				}
+			}	
+			document.getElementById('matchFoodName').value = "";
+			document.getElementById('matchFoodId').value = "";
+			for ( var i in productId) {
+				document.getElementById('matchFoodName').value += productId[i] + ",";
+			}	
+			for (var s in productIds){
+				document.getElementById('matchFoodId').value += productIds[s] + ",";
+			}
+
 		}
 
+	})
+
+	})
+
+
+function insertWine(){
+		if(confirm("상품을 등록하시겠습니까?")){
+			if($('#producer').val() == ""){
+				alert('생산자를 입력해주세요!');
+				$('#producer').focus();
+				return false;
+			}
+			else if($('#variety').val() == ""){
+				alert('품종을 입력해주세요!');
+				$('#variety').focus();
+				return false;
+			}
+			else if($('#wineEx').val() == ""){
+				alert('와인 설명을 입력해주세요!');
+				$('#wineEx').focus();
+				return false;
+			}
+			else if($('#brandEx').val() == ""){
+				alert('브랜드 설명을 입력해주세요!');
+				$('#brandEx').focus();
+				return false;
+			}else if($('#price').val() == ""){
+				alert('가격을 입력해주세요!');
+				$('#price').focus();
+				return false;
+			}
+			else if($('#year').val() == ""){
+				alert('와인 년도를 입력해주세요!');
+				$('#year').focus();
+				return false;
+			}
+			else if($('#alcohol').val() == ""){
+				alert('도수를 입력해주세요!');
+				$('#alcohol').focus();
+				return false;
+			}
+			else if($('#weight').val() == ""){
+				alert('중량 을 입력해주세요!');
+				$('#weight').focus();
+				return false;
+			}
+			else if($('#brandEx').val() == ""){
+				alert('브랜드 설명을 입력해주세요!');
+				$('#brandEx').focus();
+				return false;
+			}else if($('#temperature').val() == ""){
+				alert('온도를 입력해주세요 ');
+				$('#temperature').focus();
+				return false;
+			}
+			else if(document.getElementById('NoHave').innerHTML == '상품 중복 검사를 해주세요'){
+				alert('중복 검사를 해주세요!');
+				return false;
+			}else if(document.getElementById('NoHave').innerHTML == '등록된 상품이 있습니다'){
+				alert('상품이 중복됩니다.');
+				return false;
+			}else{
+				var form = $('#frm')[0];
+				var formData = new FormData(form);
+				$.ajax({
+					url : 'adminInsertWine.do',
+					type : 'post',
+					data : formData,
+				    enctype:'multipart/form-data',
+				    processData: false,
+				    contentType: false,
+					error : function(error) {
+						console.log(error);
+					},
+					success : function(result) {			
+						if(result == "Y"){
+							alert("상품 등록에 성공했습니다. 메인으로 돌아갑니다.");
+							location.href="adminProductList.do";							
+						}else{
+							alert("제품 등록에 실패했습니다.");
+						}
+
+					}
+
+				})
+			}
+			
+		
 	}
-
-})
-
+	}
+	
+function findNation() {
+	$('.nation option[value=' + $('#search').val() + ']').attr('selected',
+			'selected');
+};
 </script>
 <title>Insert title here</title>
 </head>
 <body>
-<form id="frm">
-<input type="hidden" id="matchFoodName" val="">
+<form id="frm" enctype="multipart/form-data">
+<input type="hidden" id="matchFoodName" name="matchFoodName" value="">
+<input type="hidden" id="matchFoodId" name="matchFoodId" value="">
 <table>
 	<tr>
 		<td>생산자</td>
 		<td>포도 품종</td>
 		<td>와인 종류</td>
 		<td>상품명</td>
+		<td>상품 원산지</td>
 	</tr>
 	<tr>
 		<td><input type="text" name="producer" id="producer"></td>
@@ -84,8 +191,20 @@ $('#food').click(function(){
 						<option value="화이트와인">화이트와인</option>
 			</select></td>
 		<td><input type="text" name="productName" id="productName"><input type="button" onclick="hasWine()"
-					value="부가 상품 중복검사"></td>
-	</tr>
+					value="부가 상품 중복검사"><span id="NoHave">상품 중복 검사를 해주세요</span></td>
+					<td><select class="nation" id="nation" name="nation">
+						<option value="남아프리카공화국">남아프리카공화국</option>
+						<option value="대한민국">대한민국</option>
+						<option value="독일">독일</option>
+						<option value="스페인">스페인</option>
+						<option value="이탈리아">이탈리아</option>
+						<option value="칠레">칠레</option>
+						<option value="포루투갈">포루투갈</option>
+						<option value="프랑스">프랑스</option>
+						<option value="호주">호주</option>
+				</select></td>
+					<td><input type="text" id="search" name="search"></td>
+				<td><input type="button" onclick="findNation()" value="검색"></td>
 	<tr>
 		<td>와인 설명</td>
 		<td>브랜드 설명</td>
@@ -107,8 +226,8 @@ $('#food').click(function(){
 	</tr>
 	<tr>
 	    <td><c:forEach items="${matchFood}" var="matchFood">
-	    	<label><input type="checkbox" id="food" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
-	    			
+	    	<label><input type="checkbox" id="matchfood" name="matchfood" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
+	    	<input type="hidden" id="${matchFood.matchFoodName}" value="${matchFood.matchFoodId}">
 	    </c:forEach> </td>
 		<td><input type="text" name="alcohol" id="alcohol"></td>
 		<td><input type="text" name="weight" id="weight"></td>
@@ -117,6 +236,7 @@ $('#food').click(function(){
 	</tr>
 	
 </table>
+<input type="button" onclick="insertWine()" value="와인 등록">
 </form>
 </body>
 </html>

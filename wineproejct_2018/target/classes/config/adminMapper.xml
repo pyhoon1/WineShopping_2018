@@ -7,7 +7,7 @@
 	<select id="getUserList" resultType="User">
 		select * from User order by rating desc
 	</select>
-	<delete id="deleteUser" parameterType="int"> 
+	<delete id="deleteUser" parameterType="int">
 		delete from user where
 		userId=#{userId}
 	</delete>
@@ -48,8 +48,8 @@
 	</delete>
 	<insert id="insertProduct" parameterType="Product">
 		insert into
-		product(productName,ex,price,nation,year,stock,matchFoodId,img)
-		values(#{productName},#{ex},#{price},#{nation},#{year},#{stock},#{matchFoodId},#{img})
+		product(producer,variety,wineKinds,productName,wineEx,brandEx,price,nation,nationImg,year,matchFoodId,matchFoodName,alcohol,weight,temperature,img)
+		values(#{producer},#{variety},#{wineKinds},#{productName},#{wineEx},#{brandEx},#{price},#{nation},#{nationImg},#{year},#{matchFoodId},#{matchFoodName},#{alcohol},#{weight},#{temperature},#{img})
 	</insert>
 	<insert id="insertMatchFood" parameterType="MatchFood">
 		insert into matchFood(matchFoodName,price,nation,nationImg,img,wine,wineImg,weight,ex)

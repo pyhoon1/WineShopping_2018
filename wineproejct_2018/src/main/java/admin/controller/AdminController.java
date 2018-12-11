@@ -41,6 +41,7 @@ public class AdminController {
 		model.addAttribute("matchFood",matchfood);
 		return new ModelAndView("/admin/adminMakeWineForm");
 	}
+	
 
 	@RequestMapping("/adminProductList.do")
 	public String getAdminProductList(@RequestParam(value = "condition", required = false) String condition,
@@ -211,14 +212,6 @@ public class AdminController {
 			@RequestParam("phone") String phone, @RequestParam("birth") String birth) {
 
 		int userId = Integer.parseInt(Id);
-		System.out.println(userId);
-		System.out.println(loginId);
-		System.out.println(password);
-		System.out.println(email);
-		System.out.println(address);
-		System.out.println(userName);
-		System.out.println(phone);
-		System.out.println(birth);
 		int check = adminservice
 				.updateUser(new User(userId, loginId, password, userName, email, address, phone, birth));
 		System.out.println("check" + check);
@@ -427,5 +420,17 @@ public class AdminController {
 		model.addAttribute("matchFood", matchfood);
 		return "/admin/adminMatchFoodView";
 	}
+	
+	@RequestMapping("/adminWineView.do")
+	public String wineView(@RequestParam("productId") int productId, Model model) {
+		Product product = adminservice.getProductView(productId);
+		List<MatchFood> matchfood = adminservice.getMatchFoodList();
+		model.addAttribute("matchFood",matchfood);
+		model.addAttribute("product", product);
+		return "/admin/adminWineView";
+	}
+	
+	
+	
 
 }
