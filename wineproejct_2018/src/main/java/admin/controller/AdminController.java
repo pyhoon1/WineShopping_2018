@@ -32,14 +32,14 @@ public class AdminController {
 
 	@RequestMapping("/adminMakeMatchFoodForm.do")
 	public ModelAndView getMakeMatchFoodForm() {
-		return new ModelAndView("adminMakeMatchFoodForm");
+		return new ModelAndView("/admin/adminMakeMatchFoodForm");
 	}
 	
 	@RequestMapping("/adminMakeWineForm.do")
 	public ModelAndView getMakeWineForm(Model model) {
 		List<MatchFood> matchfood = adminservice.getMatchFoodList();
 		model.addAttribute("matchFood",matchfood);
-		return new ModelAndView("adminMakeWineForm");
+		return new ModelAndView("/admin/adminMakeWineForm");
 	}
 
 	@RequestMapping("/adminProductList.do")
@@ -70,7 +70,7 @@ public class AdminController {
 			model.addAttribute("matchfood", matchfood);
 		}
 
-		return "adminProductList";
+		return "/admin/adminProductList";
 	}
 
 	@RequestMapping("/adminUserList.do")
@@ -84,20 +84,20 @@ public class AdminController {
 			List<User> user = adminservice.getSearchUserList(condition);
 			model.addAttribute("userList", user);
 		}
-		return "adminUserList";
+		return "/admin/adminUserList";
 	}
 
 	@RequestMapping("/adminUserView.do")
 	public String getUser(Model model, @RequestParam("userId") int userId) {
 		User user = adminservice.getUserView(userId);
 		model.addAttribute("user", user);
-		return "adminUserView";
+		return "/admin/adminUserView";
 	}
 
 	@RequestMapping("/admindeleteUser.do")
 	public String deleteUser(@RequestParam("userId") int userId) {
 		adminservice.deleteUser(userId);
-		return "adminUserList";
+		return "/admin/adminUserList";
 	}
 
 	@RequestMapping("/hasUser.do")
@@ -153,7 +153,7 @@ public class AdminController {
 
 		adminservice.updateReviewWarning(new Review(reviewId, state));
 
-		return new ModelAndView("adminUserReviewView");
+		return new ModelAndView("/admin/adminUserReviewView");
 	}
 
 	@RequestMapping("/userReviewView.do")
@@ -165,7 +165,7 @@ public class AdminController {
 
 		model.addAttribute("reviewList", review);
 
-		return new ModelAndView("adminUserReviewView");
+		return new ModelAndView("/admin/adminUserReviewView");
 
 	}
 
@@ -178,7 +178,7 @@ public class AdminController {
 
 		System.out.println("payment" + payment.size());
 
-		return new ModelAndView("adminUserPaymentView");
+		return new ModelAndView("/admin/adminUserPaymentView");
 
 	}
 
@@ -200,7 +200,7 @@ public class AdminController {
 
 		model.addAttribute("reviewList", review);
 
-		return new ModelAndView("adminUserReviewView");
+		return new ModelAndView("/admin/adminUserReviewView");
 	}
 
 	@RequestMapping("/updateAdmin.do")
@@ -237,9 +237,6 @@ public class AdminController {
 	public String updateMatchFood(HttpServletRequest request,
 			@RequestParam(value = "uploadFile", required = false) MultipartFile file,
 			@RequestParam HashMap<String, String> prm) {
-		System.out.println("파일 파일 파일 " + file);
-		System.out.println("파일2 파일2 파일2" + file.isEmpty());
-		System.out.println("파일3 파일3 파일3" + !file.isEmpty());
 		if (file.isEmpty() == false) {
 			String path = request.getSession().getServletContext().getRealPath("/");
 			String originalFilename = file.getOriginalFilename();
@@ -286,14 +283,7 @@ public class AdminController {
 				return result;
 			}
 
-		} else {
-			Set set = prm.keySet();
-			Iterator iterator = set.iterator();			
-			while(iterator.hasNext()){
-				  String key = (String)iterator.next();
-				  System.out.println("else hashMap Key : " + key);
-			}
-		
+		} else {	
 			int matchFoodId = Integer.parseInt(prm.get("matchFoodId"));
 			int price = Integer.parseInt(prm.get("price"));
 			int check = adminservice.updateMatchFood(new MatchFood(matchFoodId,prm.get("matchFoodName"), price, prm.get("nation"),
@@ -310,7 +300,46 @@ public class AdminController {
 
 	} 
 
-	@RequestMapping(value = "/adminInsertMatchFood.do")
+	@RequestMapping(value = "/adminInsertWine.do")
+	@ResponseBody
+	public String insertWine(HttpServletRequest request, @RequestParam("uploadFile") MultipartFile file,
+			@RequestParam HashMap<String, String> prm) {
+		if(prm.get("matchFoodName") == null) {
+			String result = "N";
+			return result;
+		}else {
+			String path = request.getSession().getServletContext().getRealPath("/");
+			
+			String originalFilename = file.getOriginalFilename();
+			String onlyFileName = originalFilename.substring(0, originalFilename.indexOf("."));
+			String extension = originalFilename.substring(originalFilename.indexOf("."));
+
+			long time = System.currentTimeMillis();
+
+			String rname = onlyFileName + "_" + time + extension;
+			String fullPath = path + "/resources/img/wineImg/" + rname;
+
+			int price = Integer.parseInt(prm.get("price"));
+			adminservice.insertProduct(new Product(prm.get("producer"), prm.get("variety"), prm.get("wineKinds"), prm.get("productName"), prm.get("wineEx"), prm.get("brandEx"),
+					price, prm.get("nation"), "resources/img/nationImg/" + prm.get("nation") + ".png", prm.get("year"), prm.get("matchFoodId"), prm.get("matchFoodName"),prm.get("alcohol"), prm.get("weight"),prm.get("temperature"), "resources/img/wineImg/" + rname));
+			if (!file.isEmpty()) {
+				try {
+					byte[] bytes = file.getBytes();
+					BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File(fullPath)));
+					stream.write(bytes);
+					stream.close();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+
+			}
+			String result = "Y";
+			return result;	
+			
+		}
+	}
+	
+	@RequestMapping(value="/adminInsertMatchFood.do")
 	@ResponseBody
 	public String insertMatchFood(HttpServletRequest request, @RequestParam("uploadFile") MultipartFile file,
 			@RequestParam HashMap<String, String> prm) {
@@ -353,7 +382,7 @@ public class AdminController {
 			}
 
 		}
-		return "/adminProductList";
+		return "/admin/adminProductList";
 	}
 
 	@RequestMapping("/deleteMatchFood.do")
@@ -372,14 +401,31 @@ public class AdminController {
 
 		}
 		adminservice.deleteMatchFood(matchFoodId);
-		return "/adminProductList";
+		return "/admin/adminProductList";
 	}
+	
+	@RequestMapping("/deleteWine.do")
+	public String deleteMatchFood(@RequestParam("productId") int productId, Model model ,
+			@RequestParam("img") String img, HttpServletRequest request) {
+		
+		String path = request.getSession().getServletContext().getRealPath("/");
+		File file = new File(path+img);
+		if(file.exists()) {
+			if(file.delete()) {
+				System.out.println("파일 삭제 성공");
+			}else {
+				System.out.println("파일 삭제 실패");
+			}
+		}
+		adminservice.deleteProduct(productId);
+		return "/admin/adminProductList";
+		}
 
 	@RequestMapping("/adminmatchFoodView.do")
 	public String matchFoodView(@RequestParam("matchFoodId") int matchFoodId, Model model) {
 		MatchFood matchfood = adminservice.getMatchFoodView(matchFoodId);
 		model.addAttribute("matchFood", matchfood);
-		return "adminMatchFoodView";
+		return "/admin/adminMatchFoodView";
 	}
 
 }
