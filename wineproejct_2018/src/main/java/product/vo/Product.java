@@ -47,7 +47,7 @@ public class Product {
 		this.stock = stock;
 		this.img = img;
 		this.count= count;
-	}
+	} 
 
 	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
 			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName, String weight, int stock,
