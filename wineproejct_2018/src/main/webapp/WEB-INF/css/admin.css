@@ -1,0 +1,109 @@
+body {
+    background: rgb(241, 243, 245);
+    margin: 0px;
+    font-family: 'Cardo', serif;
+    font-family: 'Noto Serif KR', sans-serif;
+}
+
+.wrapper {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    height: 90vh;
+    background: white;
+    box-shadow: 0 3px 6px rgb(0,0,0,0.16), 0 3px 6px rgb(0,0,0,0.23);
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.nav ul {
+    margin: 0px;
+    padding: 0px;
+    text-align: center;
+}
+
+.nav li {
+    list-style: none;
+    display: inline-block;
+    border: 1px solid black;
+    margin: 0 20px;
+}
+
+.nav li a {
+    display: block;
+    text-decoration: none;
+    color: black;
+    padding: 20px 60px;
+    transition: 0.5s ease-in-out
+}
+
+.nav li a:hover {
+    background: black;
+    color: white;
+}
+
+.content {
+    width: 95%;
+    height: 75%;
+    margin: 10px auto;
+    background: rgb(241, 243, 245);
+}
+
+.content .list {
+    position: relative;
+    top: 15px;
+    width: 95%;
+    height: 95%;
+    margin: 0px auto;
+    background: white;
+    box-shadow: 0 1px 3px rgb(0,0,0,0.16), 0 3px 6px rgb(0,0,0,0.23);
+}
+
+.list table{
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
+    text-align: center;
+    font-size: 17px;
+}
+
+.list table td {
+    border-bottom: 1px solid black;
+    padding: 2rem;
+}
+
+.list table a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+.list table a:hover{
+    text-decoration: underline;
+}
+
+.paging {
+    margin: 20px auto;
+    width: 90%;
+    text-align: center;
+    font-size: 22px;
+}
+
+.paging a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    transition: 0.5s;
+}
+
+.paging i {
+    cursor: pointer;
+}
+
+.paging a:hover {
+    text-decoration: underline;
+}

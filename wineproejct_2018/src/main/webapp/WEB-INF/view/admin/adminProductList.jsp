@@ -12,7 +12,7 @@
 		
 	</script>
 	<script type="text/javascript">
-		function User() {
+		/* function User() {
 			location.href = "adminUserList.do";
 		}
 		function Product() {
@@ -23,7 +23,7 @@
 		}
 		function MakeWine(){
 			location.href ="adminMakeWineForm.do";
-		}
+		} */
 		
 		function deleteMatchFood(matchFoodId,matchFoodName,img) {
 			if(confirm(matchFoodName+"을 삭제하시겠습니까?")){
