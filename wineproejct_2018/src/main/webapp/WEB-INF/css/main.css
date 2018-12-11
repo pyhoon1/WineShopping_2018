@@ -1,0 +1,331 @@
+/* 디폴트 */
+
+body{
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    background-image: linear-gradient(to bottom right, #ED213A, #93291E);
+    font-family: 'Cardo', serif;
+    font-family: 'Noto Serif KR', sans-serif;
+}
+
+.main{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    margin: 0 auto;
+}
+
+.content{
+    margin: 0 auto;
+    width: 95%;
+    min-height: 100vh;
+    flex: 1;
+}
+
+.footer{
+    margin: 0 auto;
+    width: 95%;
+    height: 100px;
+    border-top: 1px solid black;
+}
+
+.header{
+    margin: 0 auto;
+    width: 95%;
+    height: 200px;
+    border-bottom: 1px solid black;
+}
+
+/* 디폴트 */
+
+/* 헤더 */
+
+
+.header > div{
+    display: inline-block;
+}
+
+.nav {
+    position: relative;
+    left: 50px;
+    font-size: 25px;
+    line-height: 0px;
+}
+
+.nav ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav > ul > li{
+    display: inline-block;
+}
+
+.nav > ul > li > a{
+    padding: 0px 25px;
+    color: black;
+    text-decoration: none;
+}
+
+.category-dropdown { 
+    position: fixed;
+    top: 190px;
+    width: 160px;
+    height: 168px;
+    background-color: #f1f3f5;
+    display: none;
+}
+
+.nation-ul{
+    position: relative;
+    bottom:45.5px;
+    left: 145px;
+    width: 160px;
+    height: 224px;
+    background-color: #f1f3f5;
+    display: none;
+}
+
+.type-ul{
+    position: relative;
+    bottom:45.5px;
+    left: 145px;
+    width: 160px;
+    height: 224px;
+    background-color: #f1f3f5;
+    display: none;
+}
+
+.price-ul{
+    position: relative;
+    bottom:45.5px;
+    left: 145px;
+    width: 160px;
+    height: 224px;
+    background-color: #f1f3f5;
+    display: none;
+}
+
+.category-dropdown div {
+    margin: 0 auto;
+    display: block;
+    width: 130px;
+    height: 36px;;
+    text-align: center;
+    padding: 10px;
+    transition: 0.4s;
+}
+
+.category-dropdown a{
+    font-size: 20px; 
+    text-decoration: none;
+    color: black;
+    line-height: 35px;
+}
+
+.category-dropdown div:hover{
+    background-color: #ced4da;
+}
+
+.search-box{
+    position: relative;
+    top: 11px;
+    height: 25px;
+    border-radius: 25px;
+    background-color: #f2534b;  
+    padding: 6px;
+}
+
+.search-btn{
+    float:right;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    background: #f03e3e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.search-txt{
+    color: white;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding: 0px;
+    font-size: 16px;
+    transition: 0.4s;
+    line-height: 25px;
+    width: 0px;
+}
+
+.search-box:hover > .search-txt{
+    width: 200px;
+    padding: 0 10px;
+}
+
+.border-right{
+    border-right: 3px solid #e03131;
+}
+
+.nav > ul > li > a:hover{
+    font-weight: bold;
+}
+
+.login-box{
+    display: none;
+    position: fixed;
+    top: 190px;
+    right: 45%;
+    width: 300px;
+    background-color: #f1f3f5;
+    padding: 30px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.login-box h3{
+    margin: 0 0 30px;
+    padding: 0px;
+    text-align: center;
+}
+
+.login-box .input-box input{
+    margin: 5px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.submit{
+    margin-left: 4px;
+    margin-top: 10px;
+    border: none;
+    outline: none;
+    width: 243px;
+    height: 50px;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.submit:hover{
+    background-color: #ced4da;
+}
+
+/* 헤더 끝 */
+
+
+/* 컨텐츠 시작 */
+
+.content{
+    margin: 0 auto;
+    width: 95%;
+    min-height: 100vh;
+    flex: 1;
+}
+
+.content-category{
+    margin: 0 auto;
+    margin-top: 50px;
+    width: 90%;
+    border: 1px solid black; 
+    border-collapse: collapse;
+    font-size: 18px;
+}
+
+.content-category tr, td{
+    width: 254px;
+    height: 50px;
+    border: 2.5px solid black; 
+    background-color: #c92a2a;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px;
+    transition: 0.3s;
+}
+
+.content-category a {
+    display: block;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+}   
+
+.content-category td:hover{
+    background: #e03131;
+}
+
+.mainList {
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 95%;
+}
+
+.mainList > ul {
+    list-style: none;
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-left: 0px;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.mainList li {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 195px;
+    margin: 0 20px;
+}
+
+.mainList a {
+    text-decoration: none;
+    color: black;
+}
+
+.mainList h4 {
+    margin: 0px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+
+.wineName {
+    display:inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 170px;
+}
+
+.wineType, .wineNation {
+    width: 25px;
+    height: 25px;
+}
+
+.left span, .right span {
+    display: block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+    text-align: right;
+}
+
+.right img {
+    width: 25px;
+    height: 20px;
+}
+
+/* 컨텐츠 끝 */
