@@ -8,12 +8,12 @@
 </script>
 <head>
 <script>
-	function User() {
+	/* function User() {
 		location.href="adminUserList.do";
 	}
 	function Product(){
 		location.href="adminProductList.do";
-	}
+	} */
 	
 	function deleteUser(userId,loginId){
 	
