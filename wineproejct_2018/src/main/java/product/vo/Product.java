@@ -21,15 +21,14 @@ public class Product {
 	private int stock;
 	private String img;
 	private int count;
- 
+
 	public Product() {
 
 	}
 
 	public Product(int productId, String producer, String variety, String wineKinds, String productName, String wineEx,
-			String brandEx, int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,
-			String weight, int stock, String img,int count) {
-		super();
+			String brandEx, int price, String nation, String nationImg, String year, String matchFoodId,
+			String matchFoodName, String weight, int stock, String img, int count) {
 		this.productId = productId;
 		this.producer = producer;
 		this.variety = variety;
@@ -46,13 +45,12 @@ public class Product {
 		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
-		this.count= count;
-	} 
+		this.count = count;
+	}
 
 	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
-			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName, String weight, int stock,
-			String img , int count) {
-		super();
+			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,
+			String weight, int stock, String img) {
 		this.producer = producer;
 		this.variety = variety;
 		this.wineKinds = wineKinds;
@@ -61,17 +59,14 @@ public class Product {
 		this.brandEx = brandEx;
 		this.price = price;
 		this.nation = nation;
-		this.nationImg= nationImg;
+		this.nationImg = nationImg;
 		this.year = year;
 		this.matchFoodId = matchFoodId;
 		this.matchFoodName = matchFoodName;
 		this.weight = weight;
 		this.stock = stock;
 		this.img = img;
-		this.count = count;
 	}
-	
-	
 
 	public String getNationImg() {
 		return nationImg;
