@@ -5,6 +5,7 @@ import java.util.Map;
 
 import review.vo.Review;
 
+@ReviewAnnotMapper
 public interface ReviewMapper {
 	
 	public List<Review> getReviewList(Map<String, Integer> page);

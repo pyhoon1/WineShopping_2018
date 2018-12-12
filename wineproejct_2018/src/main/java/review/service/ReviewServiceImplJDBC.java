@@ -10,7 +10,7 @@ import review.vo.Review;
 import review.vo.ReviewPage;
 
 @Service("reviewService")
-public class ReviewServiceImplJDBC {
+public class ReviewServiceImplJDBC implements ReviewService{
 	
 	@Autowired
 	private ReviewDao reviewDao;

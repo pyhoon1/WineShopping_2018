@@ -10,7 +10,7 @@ import org.springframework.stereotype.Repository;
 import review.vo.Review;
 
 @Repository("reviewDao")
-public class ReviewDaoImplJDBC {
+public class ReviewDaoImplJDBC implements ReviewDao{
 	
 	@Autowired
 	private ReviewMapper reviewMapper;
@@ -29,5 +29,10 @@ public class ReviewDaoImplJDBC {
 	
 	public int getReviewCount() {
 		return reviewMapper.getReviewCount();
+	}
+
+	public List<Review> getReviewList(int startRow, int size, int productId) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
