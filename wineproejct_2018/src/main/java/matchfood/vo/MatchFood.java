@@ -19,6 +19,9 @@ public class MatchFood {
 	public MatchFood() {
 
 	}
+	
+	
+	
 
 	public MatchFood(int matchFoodId, String matchFoodName, int price, String nation, String nationImg, String img,
 			String wine, String wineImg, String weight, String ex, String count) {
@@ -34,6 +37,22 @@ public class MatchFood {
 		this.weight = weight;
 		this.ex = ex;
 		this.count = count;
+	}
+	
+	
+	public MatchFood(int matchFoodId, String matchFoodName, int price, String nation, String nationImg, String img,
+			String wine, String wineImg, String weight, String ex) {
+		super();
+		this.matchFoodId = matchFoodId;
+		this.matchFoodName = matchFoodName;
+		this.price = price;
+		this.nation = nation;
+		this.nationImg = nationImg;
+		this.img = img;
+		this.wine = wine;
+		this.wineImg = wineImg;
+		this.weight = weight;
+		this.ex = ex;
 	}
 
 	public MatchFood(String matchFoodName, int price, String nation, String nationImg, String img, String wine,

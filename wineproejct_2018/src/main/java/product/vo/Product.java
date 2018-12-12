@@ -49,6 +49,28 @@ public class Product {
 		this.img = img;
 		this.count = count;
 	}
+	
+	public Product(String producer, String variety, String wineKinds, String productName, String wineEx,
+			String brandEx, int price, String nation, String nationImg, String year, String matchFoodId,
+			String matchFoodName, String alcohol,String weight, String temperature, String img, int count) {
+		this.producer = producer;
+		this.variety = variety;
+		this.wineKinds = wineKinds;
+		this.productName = productName;
+		this.wineEx = wineEx;
+		this.brandEx = brandEx;
+		this.price = price;
+		this.nation = nation;
+		this.nationImg = nationImg;
+		this.year = year;
+		this.matchFoodId = matchFoodId;
+		this.matchFoodName = matchFoodName;
+		this.alcohol = alcohol;
+		this.weight = weight;
+		this.temperature = temperature;
+		this.img = img;
+		this.count = count;
+	}
 
 	public Product(String producer, String variety, String wineKinds, String productName, String wineEx, String brandEx,
 			int price, String nation, String nationImg, String year, String matchFoodId, String matchFoodName,String alcohol,
