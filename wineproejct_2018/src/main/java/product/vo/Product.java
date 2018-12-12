@@ -8,7 +8,7 @@ public class Product {
 	private String producer;
 	private String variety;
 	private String wineKinds;
-	private String productName;
+	private String productName; 
 	private String wineEx;
 	private String brandEx;
 	private int price;
