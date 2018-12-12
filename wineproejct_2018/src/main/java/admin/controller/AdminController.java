@@ -28,7 +28,7 @@ import user.vo.User;
 public class AdminController {
 
 	@Autowired
-	private AdminService adminservice;
+	private AdminService adminService;
 
 	@RequestMapping("/adminMakeMatchFoodForm.do")
 	public ModelAndView getMakeMatchFoodForm() {
@@ -37,7 +37,7 @@ public class AdminController {
 	
 	@RequestMapping("/adminMakeWineForm.do")
 	public ModelAndView getMakeWineForm(Model model) {
-		List<MatchFood> matchfood = adminservice.getMatchFoodList();
+		List<MatchFood> matchfood = adminService.getMatchFoodList();
 		model.addAttribute("matchFood",matchfood);
 		return new ModelAndView("/admin/adminMakeWineForm");
 	}
@@ -51,22 +51,22 @@ public class AdminController {
 		if (type != null && condition != null) {
 			if (type.equals("product") && condition != null) {
 				System.out.println("product on ");
-				List<Product> product = adminservice.getSearchProductList(condition);
-				List<MatchFood> matchfood = adminservice.getMatchFoodList();
+				List<Product> product = adminService.getSearchProductList(condition);
+				List<MatchFood> matchfood = adminService.getMatchFoodList();
 				model.addAttribute("productList", product);
 				model.addAttribute("matchfood", matchfood);
 
 			} else if (type.equals("matchFood") && condition != null) {
 				System.out.println("matchFood on ");
-				List<Product> product = adminservice.getProductList();
-				List<MatchFood> matchfood = adminservice.getSearchMatchFoodList(condition);
+				List<Product> product = adminService.getProductList();
+				List<MatchFood> matchfood = adminService.getSearchMatchFoodList(condition);
 				model.addAttribute("productList", product);
 				model.addAttribute("matchfood", matchfood);
 			}
 		} else {
 			System.out.println("else on ");
-			List<Product> product = adminservice.getProductList();
-			List<MatchFood> matchfood = adminservice.getMatchFoodList();
+			List<Product> product = adminService.getProductList();
+			List<MatchFood> matchfood = adminService.getMatchFoodList();
 			model.addAttribute("productList", product);
 			model.addAttribute("matchfood", matchfood);
 		}
@@ -79,10 +79,10 @@ public class AdminController {
 
 		System.out.println("condition === " + condition);
 		if (condition == null) {
-			List<User> user = adminservice.getUserList();
+			List<User> user = adminService.getUserList();
 			model.addAttribute("userList", user);
 		} else {
-			List<User> user = adminservice.getSearchUserList(condition);
+			List<User> user = adminService.getSearchUserList(condition);
 			model.addAttribute("userList", user);
 		}
 		return "/admin/adminUserList";
@@ -90,21 +90,21 @@ public class AdminController {
 
 	@RequestMapping("/adminUserView.do")
 	public String getUser(Model model, @RequestParam("userId") int userId) {
-		User user = adminservice.getUserView(userId);
+		User user = adminService.getUserView(userId);
 		model.addAttribute("user", user);
 		return "/admin/adminUserView";
 	}
 
 	@RequestMapping("/admindeleteUser.do")
 	public String deleteUser(@RequestParam("userId") int userId) {
-		adminservice.deleteUser(userId);
+		adminService.deleteUser(userId);
 		return "/admin/adminUserList";
 	}
 
 	@RequestMapping("/hasUser.do")
 	@ResponseBody
 	public String hasUser(@RequestParam("loginId") String loginId) {
-		int hasUser = adminservice.hasUserId(loginId);
+		int hasUser = adminService.hasUserId(loginId);
 		String result = "";
 		if (hasUser > 0) {
 			result = "Y";
@@ -118,7 +118,7 @@ public class AdminController {
 	@RequestMapping("/hasMatchFood.do")
 	@ResponseBody
 	public String hasMatchFood(@RequestParam(name = "matchFoodName", required = false) String matchFoodName) {
-		int hasMatchFood = adminservice.hasMatchFood(matchFoodName);
+		int hasMatchFood = adminService.hasMatchFood(matchFoodName);
 		String result = "";
 		if (hasMatchFood > 0) {
 			result = "Y";
@@ -132,7 +132,7 @@ public class AdminController {
 	@RequestMapping("/hasWine.do")
 	@ResponseBody
 	public String hasWine(@RequestParam (name ="productName", required=false) String productName) {
-		int hasWine = adminservice.hasWine(productName);
+		int hasWine = adminService.hasWine(productName);
 		String result = "";
 		if (hasWine > 0) {
 			result = "Y";
@@ -148,11 +148,11 @@ public class AdminController {
 	public ModelAndView warningReview(@RequestParam("state") String state, @RequestParam("reviewId") int reviewId,
 			int userId, Model model) {
 
-		List<Review> review = adminservice.getReviewUser(userId);
+		List<Review> review = adminService.getReviewUser(userId);
 
 		model.addAttribute("reviewList", review);
 
-		adminservice.updateReviewWarning(new Review(reviewId, state));
+		adminService.updateReviewWarning(new Review(reviewId, state));
 
 		return new ModelAndView("/admin/adminUserReviewView");
 	}
@@ -162,7 +162,7 @@ public class AdminController {
 	public ModelAndView userReviewView(@RequestParam("userId") String userId, Model model) {
 		int Id = Integer.parseInt(userId);
 
-		List<Review> review = adminservice.getReviewUser(Id);
+		List<Review> review = adminService.getReviewUser(Id);
 
 		model.addAttribute("reviewList", review);
 
@@ -174,7 +174,7 @@ public class AdminController {
 	@ResponseBody
 	public ModelAndView userPaymentView(@RequestParam("userId") String userId, Model model) {
 		int Id = Integer.parseInt(userId);
-		List<Payment> payment = adminservice.getPaymentUser(Id);
+		List<Payment> payment = adminService.getPaymentUser(Id);
 		model.addAttribute("paymentList", payment);
 
 		System.out.println("payment" + payment.size());
@@ -195,9 +195,9 @@ public class AdminController {
 		System.out.println("deleteReivew 1" + rId);
 		System.out.println("deleteReview 2" + uId);
 
-		adminservice.deleteReview(rId);
+		adminService.deleteReview(rId);
 
-		List<Review> review = adminservice.getReviewUser(uId);
+		List<Review> review = adminService.getReviewUser(uId);
 
 		model.addAttribute("reviewList", review);
 
@@ -212,7 +212,7 @@ public class AdminController {
 			@RequestParam("phone") String phone, @RequestParam("birth") String birth) {
 
 		int userId = Integer.parseInt(Id);
-		int check = adminservice
+		int check = adminService
 				.updateUser(new User(userId, loginId, password, userName, email, address, phone, birth));
 		System.out.println("check" + check);
 		if (check > 0) {
@@ -263,7 +263,7 @@ public class AdminController {
 			}
 			
 			int matchFoodId = Integer.parseInt(prm.get("matchFoodId"));
-			int check = adminservice.updateMatchFood(new MatchFood(matchFoodId,prm.get("matchFoodName"), price, prm.get("nation"),
+			int check = adminService.updateMatchFood(new MatchFood(matchFoodId,prm.get("matchFoodName"), price, prm.get("nation"),
 					"resources/img/nationImg/" + prm.get("nation") + ".png","resources/img/matchFoodImg/" + rname , prm.get("wineImg"),
 					"resources/img/miniWineImg/" + prm.get("wineImg") + ".png", prm.get("weight"), prm.get("ex")));
 			System.out.println("check" + check);
@@ -279,7 +279,7 @@ public class AdminController {
 		} else {	
 			int matchFoodId = Integer.parseInt(prm.get("matchFoodId"));
 			int price = Integer.parseInt(prm.get("price"));
-			int check = adminservice.updateMatchFood(new MatchFood(matchFoodId,prm.get("matchFoodName"), price, prm.get("nation"),
+			int check = adminService.updateMatchFood(new MatchFood(matchFoodId,prm.get("matchFoodName"), price, prm.get("nation"),
 					"resources/img/nationImg/" + prm.get("nation") + ".png", prm.get("originalImg"), prm.get("wineImg"),
 					"resources/img/miniWineImg/" + prm.get("wineImg") + ".png", prm.get("weight"), prm.get("ex")));
 			if (check > 0) {
@@ -303,6 +303,7 @@ public class AdminController {
 		}else {
 			String path = request.getSession().getServletContext().getRealPath("/");
 			
+			System.out.println(path);
 			String originalFilename = file.getOriginalFilename();
 			String onlyFileName = originalFilename.substring(0, originalFilename.indexOf("."));
 			String extension = originalFilename.substring(originalFilename.indexOf("."));
@@ -312,9 +313,12 @@ public class AdminController {
 			String rname = onlyFileName + "_" + time + extension;
 			String fullPath = path + "/resources/img/wineImg/" + rname;
 
+			String matchFoodName = prm.get("matchFoodName").substring(0, prm.get("matchFoodName").length()-1);
+			String matchFoodId = prm.get("matchFoodId").substring(0, prm.get("matchFoodId").length()-1);
+			
 			int price = Integer.parseInt(prm.get("price"));
-			adminservice.insertProduct(new Product(prm.get("producer"), prm.get("variety"), prm.get("wineKinds"), prm.get("productName"), prm.get("wineEx"), prm.get("brandEx"),
-					price, prm.get("nation"), "resources/img/nationImg/" + prm.get("nation") + ".png", prm.get("year"), prm.get("matchFoodId"), prm.get("matchFoodName"),prm.get("alcohol"), prm.get("weight"),prm.get("temperature"), "resources/img/wineImg/" + rname));
+			adminService.insertProduct(new Product(prm.get("producer"), prm.get("variety"), prm.get("wineKinds"), prm.get("productName"), prm.get("wineEx"), prm.get("brandEx"),
+					price, prm.get("nation"), "resources/img/nationImg/" + prm.get("nation") + ".png", prm.get("year"), matchFoodId, matchFoodName,prm.get("alcohol"), prm.get("weight"),prm.get("temperature"), "resources/img/wineImg/" + rname));
 			if (!file.isEmpty()) {
 				try {
 					byte[] bytes = file.getBytes();
@@ -340,6 +344,7 @@ public class AdminController {
 		String path = request.getSession().getServletContext().getRealPath("/");
 
 		System.out.println(path);
+		
 
 		String pdfPath2 = request.getSession().getServletContext().getRealPath("resources/img/matchFoodImg/1234.png");
 		System.out.println("접근 3" + new File(pdfPath2).exists());
@@ -357,7 +362,7 @@ public class AdminController {
 
 		System.out.println(prm.get("wineImg"));
 
-		adminservice.insertMatchFood(new MatchFood(prm.get("matchFoodName"), price, prm.get("nation"),
+		adminService.insertMatchFood(new MatchFood(prm.get("matchFoodName"), price, prm.get("nation"),
 				"resources/img/nationImg/" + prm.get("nation") + ".png", "resources/img/matchFoodImg/" + rname,
 				prm.get("wineImg"), "resources/img/miniWineImg/" + prm.get("wineImg") + ".png", prm.get("weight"),
 				prm.get("ex")));
@@ -393,7 +398,7 @@ public class AdminController {
 			}
 
 		}
-		adminservice.deleteMatchFood(matchFoodId);
+		adminService.deleteMatchFood(matchFoodId);
 		return "/admin/adminProductList";
 	}
 	
@@ -410,21 +415,21 @@ public class AdminController {
 				System.out.println("파일 삭제 실패");
 			}
 		}
-		adminservice.deleteProduct(productId);
+		adminService.deleteProduct(productId);
 		return "/admin/adminProductList";
 		}
 
 	@RequestMapping("/adminmatchFoodView.do")
 	public String matchFoodView(@RequestParam("matchFoodId") int matchFoodId, Model model) {
-		MatchFood matchfood = adminservice.getMatchFoodView(matchFoodId);
+		MatchFood matchfood = adminService.getMatchFoodView(matchFoodId);
 		model.addAttribute("matchFood", matchfood);
 		return "/admin/adminMatchFoodView";
 	}
 	
 	@RequestMapping("/adminWineView.do")
 	public String wineView(@RequestParam("productId") int productId, Model model) {
-		Product product = adminservice.getProductView(productId);
-		List<MatchFood> matchfood = adminservice.getMatchFoodList();
+		Product product = adminService.getProductView(productId);
+		List<MatchFood> matchfood = adminService.getMatchFoodList();
 		model.addAttribute("matchFood",matchfood);
 		model.addAttribute("product", product);
 		return "/admin/adminWineView";

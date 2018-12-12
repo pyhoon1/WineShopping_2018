@@ -18,7 +18,7 @@
 <script src="./javascript/userPop.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
+<body> 
 	<div class="wrapper">
 		<div class="buttons">
 			<button id="receipt">구매 내역 보기</button>

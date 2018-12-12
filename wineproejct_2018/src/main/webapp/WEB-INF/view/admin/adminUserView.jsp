@@ -22,7 +22,7 @@
 			} else if (document.getElementById('NoHave').innerHTML == "중복된 아이디가 있습니다.") {
 				alert("아이디가 중복이 됩니다.");
 				return false;
-			} else {
+			} else { 
 				$.ajax({
 					url : 'updateAdmin.do',
 					type : 'post',

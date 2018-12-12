@@ -29,7 +29,7 @@ public class AdminDaoImplJDBC implements AdminDao {
 	public List<User> readSearchUserAll(String condition) {
 		List<User> user = adminMapper.getSearchUserList(condition);
 		return user;
-	}
+	} 
 
 	
 	

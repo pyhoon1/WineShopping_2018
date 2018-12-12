@@ -1,0 +1,15 @@
+파일 업로드 방법
+
+1. 서버 에 context.xml
+1-1  <Context> 를 지우고 <Context  allowCasualMultipartParsing="true"> 추가
+1-2  <Resources cachingAllowed="true" cacheMaxSize="100000"></Resources> 추가
+
+2. beans.xml
+2-1 <bean id="multipartResolver"
+	class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="100000000" />
+		<property name="maxInMemorySize" value="100000000" />
+	</bean> 추가
+	
+
+	

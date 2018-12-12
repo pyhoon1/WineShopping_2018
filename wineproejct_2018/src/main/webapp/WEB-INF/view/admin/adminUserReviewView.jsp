@@ -23,7 +23,7 @@
 				<td>O</td>
 			</c:otherwise>
 		</c:choose>	
-		<c:choose>
+		<c:choose> 
 			<c:when test="${review.state == 'Y'}">		 
 					<td>
 						<button onclick="warningReview('N','${review.reviewId}','${review.userId }')">리뷰 차단</button>

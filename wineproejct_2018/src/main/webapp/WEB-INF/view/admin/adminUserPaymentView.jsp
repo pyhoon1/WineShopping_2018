@@ -17,4 +17,4 @@
 		<td>${payment.total}</td>
 		<td>${payment.wdate}</td>
 	</tr>
-</c:forEach>
+</c:forEach> 

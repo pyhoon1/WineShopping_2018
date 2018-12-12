@@ -141,7 +141,7 @@ function hasMatchFoodName() {
 <form id="frm" method="post" enctype="multipart/form-data">
 <input type="hidden" name="originalImg" value="${matchFood.img }">
 <input type="hidden" id="matchFoodId" name="matchFoodId" value="${matchFood.matchFoodId }">
-<table>
+<table> 
 			<caption>부가 상품 등록</caption>
 			<tr>
 				<td>상품명</td>	

@@ -19,7 +19,7 @@
 	
 		if(confirm(loginId+"님을 삭제하시겠습니까?")){
 			var information = {
-				'userId':userId			
+				'userId':userId	 		
 				
 			}
 			$.ajax({

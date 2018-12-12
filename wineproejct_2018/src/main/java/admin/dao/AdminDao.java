@@ -77,7 +77,7 @@ public interface AdminDao {
 	
 	// 리뷰를 삭제함
 	public void deleteReview(int ReviewId);
-	
+	 
 	//유저 하나의 리뷰를 불러옴
 	public List<Review> readReviewUser(int userId);
 	

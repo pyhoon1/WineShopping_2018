@@ -17,7 +17,7 @@ public class AdminServiceImpl implements AdminService{
 
 	
 	@Autowired
-	AdminDao admin;
+	private AdminDao admin;
 	
 	
 	
@@ -31,7 +31,7 @@ public class AdminServiceImpl implements AdminService{
 		admin.deleteUser(userId);
 		
 	}
-
+ 
 	
 	
 	public List<Product> getProductList() {

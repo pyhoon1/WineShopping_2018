@@ -21,7 +21,7 @@ public interface AdminService {
 	
 	// 유저 한명을 봄
 	public User getUserView(int userId); 
-	
+	 
 	// 회원 을 삭제함
 	public void deleteUser(int userId);
 	

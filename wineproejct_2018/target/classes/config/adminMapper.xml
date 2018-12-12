@@ -19,7 +19,7 @@
 		userId=#{userId}
 	</update>
 	<select id="getUserView" resultType="User" parameterType="int">
-		select
+		select 
 		* from User where userId = #{userId}
 	</select>
 	<select id="hasUserId" resultType="int" parameterType="String">

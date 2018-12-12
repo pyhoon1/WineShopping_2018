@@ -9,6 +9,11 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
 </script>
 <script>
+$(function(){
+	$("#nation").val($('#compareNation').val()).prop("selected", true);
+	
+	$("#wineKinds").val($('#compareWine').val()).prop("selected", true);
+})
 function hasWine() {
 	if($('#productName').val() == ""){
 		alert("중복을 검사할 음식명을 입력해주세요");
@@ -39,11 +44,33 @@ function hasWine() {
 
 }
 $(function() {
+	var matchproductN = $("#matchFoodName").val();
+	var matchproductI = $("#matchFoodId").val();
+	
+	var matchproductNs = matchproductN.split(",");
+	
+	for(var i in matchproductNs){
+		$('.'+matchproductNs[i]).attr('checked', true);
+		
+	}
+	
+	console.log(matchproductNs[0]);
+	
+	
+	
+	
+	
+	
 	var product = "";
 	var products = "";
 	$('#matchfood').click(function() {
 		if (this.checked) {
-			document.getElementById('matchFoodName').value += $(this).val() + ",";	
+			if(document.getElementById('matchFoodName').value != ""){
+				document.getElementById('matchFoodName').value += "," + $(this).val();
+			}else{
+				document.getElementById('matchFoodName').value +=  $(this).val() + "," ;
+			}
+			
 			document.getElementById('matchFoodId').value += document.getElementById($(this).val()).value + ",";
 		} else {
 			var productL = document.getElementById('matchFoodName').value.split(',');
@@ -171,8 +198,10 @@ function findNation() {
 </head>
 <body>
 <form id="frm" enctype="multipart/form-data">
-<input type="hidden" id="matchFoodName" name="matchFoodName" value="">
-<input type="hidden" id="matchFoodId" name="matchFoodId" value="">
+<input type="hidden" id="matchFoodName" name="matchFoodName" value="${product.matchFoodName}">
+<input type="hidden" id="matchFoodId" name="matchFoodId" value="${product.matchFoodId }">
+<input type="hidden" id="compareNation" value="${product.nation }">
+<input type="hidden" id="compareWine" value="${product.wineKinds }">
 <table>
 	<tr>
 		<td>생산자</td>
@@ -182,15 +211,15 @@ function findNation() {
 		<td>상품 원산지</td>
 	</tr>
 	<tr>
-		<td><input type="text" name="producer" id="producer"></td>
-		<td><input type="text" name="variety" id="variety"></td>
+		<td><input type="text" name="producer" id="producer" value="${product.producer }"></td>
+		<td><input type="text" name="variety" id="variety" value="${product.variety}"></td>
 		<td><select name="wineKinds" id="wineKinds">
 						<option value="레드와인">레드와인</option>
 						<option value="로제와인">로제와인</option>
 						<option value="스파클링">스파클링</option>
 						<option value="화이트와인">화이트와인</option>
 			</select></td>
-		<td><input type="text" name="productName" id="productName"><input type="button" onclick="hasWine()"
+		<td><input type="text" name="productName" id="productName" value="${product.productName}"><input type="button" onclick="hasWine()"
 					value="부가 상품 중복검사"><span id="NoHave">상품 중복 검사를 해주세요</span></td>
 					<td><select class="nation" id="nation" name="nation">
 						<option value="남아프리카공화국">남아프리카공화국</option>
@@ -212,10 +241,10 @@ function findNation() {
 		<td>상품 년도</td>
 	</tr>
 	<tr>
-		<td><textarea rows="" cols="" name="wineEx" id="wineEx"></textarea></td>
-		<td><textarea rows="" cols="" name="brandEx" id="brandEx"></textarea></td>
-		<td><input type="number" name="price"></td>
-		<td><input type="text" name="year" id="year"></td>
+		<td><textarea rows="" cols="" name="wineEx" id="wineEx">${product.wineEx}</textarea></td>
+		<td><textarea rows="" cols="" name="brandEx" id="brandEx">${product.brandEx}</textarea></td>
+		<td><input type="number" name="price" value="${product.price}"></td>
+		<td><input type="text" name="year" id="year" value="${product.year}"></td>
 	</tr>
 	<tr>
 		<td>궁합 좋은 음식</td>
@@ -226,12 +255,12 @@ function findNation() {
 	</tr>
 	<tr>
 	    <td><c:forEach items="${matchFood}" var="matchFood">
-	    	<label><input type="checkbox" id="matchfood" name="matchfood" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
+	    	<label><input type="checkbox" id="matchfood" name="${matchFood.matchFoodName}" class="${matchFood.matchFoodName}" value="${matchFood.matchFoodName}">${matchFood.matchFoodName}</label>
 	    	<input type="hidden" id="${matchFood.matchFoodName}" value="${matchFood.matchFoodId}">
 	    </c:forEach> </td>
-		<td><input type="text" name="alcohol" id="alcohol"></td>
-		<td><input type="text" name="weight" id="weight"></td>
-		<td><input type="text" name="temperature" id="temperature"></td>
+		<td><input type="text" name="alcohol" id="alcohol" value="${product.alcohol }"></td>
+		<td><input type="text" name="weight" id="weight" value="${product.weight}"></td>
+		<td><input type="text" name="temperature" id="temperature" value="${product.temperature }"></td>
 		<td><input type="file" name="uploadFile"></td>
 	</tr>
 	
