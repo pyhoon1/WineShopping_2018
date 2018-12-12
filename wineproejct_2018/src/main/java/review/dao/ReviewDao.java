@@ -4,6 +4,7 @@ import java.util.List;
 
 import review.vo.Review;
 
+
 public interface ReviewDao {
 	public List<Review> getReviewList(int startRow, int size, int productId);
 

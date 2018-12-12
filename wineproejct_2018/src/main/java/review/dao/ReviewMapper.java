@@ -12,5 +12,6 @@ public interface ReviewMapper {
 	
 	public int getReviewCount();
 	
+	
 	public void insertReview(Review review);
 }

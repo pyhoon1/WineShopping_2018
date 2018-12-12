@@ -16,6 +16,7 @@ public class ReviewPage {
  
 	}
 
+	
 	private List<Review> reviewList;
 	private int currentPage;
 	private int totalPages;

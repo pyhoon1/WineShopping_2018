@@ -37,7 +37,6 @@ public class Review {
 	}
 	
 	
-	
 	public Review(int reviewId, String state) {
 		super();
 		this.reviewId = reviewId;

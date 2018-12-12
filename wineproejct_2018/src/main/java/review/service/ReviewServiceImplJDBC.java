@@ -24,6 +24,7 @@ public class ReviewServiceImplJDBC implements ReviewService{
 		return reviewPage;
 	}
 	
+	
 	public void insertReview(Review review) {
 		reviewDao.insertReview(review);
 	}

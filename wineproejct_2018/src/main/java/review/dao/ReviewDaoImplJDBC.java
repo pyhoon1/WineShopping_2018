@@ -15,7 +15,7 @@ public class ReviewDaoImplJDBC implements ReviewDao{
 	@Autowired
 	private ReviewMapper reviewMapper;
 	
-	
+
 	public void insertReview(Review review) {
 		reviewMapper.insertReview(review);
 	}
