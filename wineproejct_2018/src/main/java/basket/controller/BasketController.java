@@ -28,7 +28,7 @@ public class BasketController {
 	public String goUserbasket() {
 		return "userBasket";
 	}
-	
+
 	@RequestMapping("/getBasketList.do")
 	public String getBasketList(Model model, @RequestParam("pageNum") int pageNum, @RequestParam("userId") int userId) {
 		BasketPage basketPage = basketService.getBasketList(pageNum, userId);
