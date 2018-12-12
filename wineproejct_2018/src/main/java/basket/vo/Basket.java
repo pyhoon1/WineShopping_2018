@@ -10,7 +10,7 @@ public class Basket {
 	private int matchFoodId;
 	private String productName;
 	private int productPrice;
-	private int productCount;
+	private int productCount; 
 	private String productImg;
 	private String matchFoodIdList;
 	private String matchFoodCount;
